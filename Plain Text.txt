@@ -1,0 +1,13 @@
+Bom dia Cezar!
+
+Sou Rodrigo Verissimo, o estagiario sendo orientado pelo prof. Jivago. Fiquei responsavel por fazer alterações na parte de autenticação do Wifi IC_Academico.
+
+Estou precisando de sua ajuda em algumas questões. Queriamos instalar https. Você sabe se é possivel no dominio do IC?
+Está liberado o DNS? 
+
+Desde já agradeço
+
+atenciosamente,
+
+Rodrigo Verissimo
+
