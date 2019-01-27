@@ -6,7 +6,6 @@ error_reporting(E_ALL);
 
 //require_once 'upload.php';
 require_once "../model/noticia.php";
-require_once "../model/pojo_noticia.php";
 
 if(isset($_POST['_method'])) {
   $m = strtoupper($_POST['_method']);
@@ -17,7 +16,10 @@ if(isset($_POST['_method'])) {
     $dao = DaoNoticia::getInstance();
     $dao->Inserir($dao->carregarNoticia());
   }
-}else
+}
+header('Location: http://localhost/IC_ACADEMICO/implementação' );
+
+
 
 ?>
 

@@ -1,3 +1,5 @@
+<?php require_once "model/noticia.php"; ?>
+
 <!doctype html>
 <html lang="pt-BR">
 
@@ -13,6 +15,12 @@
 
 <body>
   <?php include 'partials/login.php'?>
+  <?php $noticias = DaoNoticia::getInstance()->show(4); ?>
+  <pre>
+
+
+  <?php print_r($noticias) ?>
+  </pre>
 
   <div id="mural-ic">
     <h1>Notícias do IC:</h1>
