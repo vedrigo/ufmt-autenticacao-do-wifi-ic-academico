@@ -29,8 +29,8 @@
             <div class="col col-sm-12">
                 <div class="form-group">
 
-                    <label for="login">Voucher:</label>
-                    <input type="text" class="form-control" id="login">
+                    <label for="voucher">Voucher:</label>
+                    <input type="text" class="form-control" id="voucher">
                 </div>
             </div>
         </div>

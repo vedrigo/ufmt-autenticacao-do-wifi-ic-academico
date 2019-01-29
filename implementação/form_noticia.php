@@ -1,3 +1,26 @@
+<?php
+
+ini_set("display_errors",1);
+ini_set("display_startup_erros",1);
+error_reporting(E_ALL);
+
+  if (isset($_POST['_method'])) {
+    $m = strtoupper($_POST['_method']);
+    if ($m == 'PUT') {
+    } elseif ($m == 'PATCH') {
+    } elseif ($m == 'DELETE') {
+    } elseif ($m == 'POST') {
+      require_once "class/noticia.php";
+      include_once 'class/upload.php';
+      $dao = DaoNoticia::getInstance();
+      $dao->Inserir($dao->carregarNoticia());
+
+    }
+  }
+
+
+?>
+
 <!doctype html>
 <html lang="pt-BR">
 
@@ -14,8 +37,8 @@
 
 <body>
     <div class="container">
-        <form method="post" action="controller/noticia_controller.php"  enctype="multipart/form-data">
-            <input name="_method" type="hidden" value="patch" />
+        <form method="post" action="#"  enctype="multipart/form-data">
+            <input name="_method" type="hidden" value="POST" />
             <div class="input-group mb-3 mt-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Título:</span>

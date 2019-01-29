@@ -39,7 +39,7 @@ figure{
   display: grid;
   grid-template-columns: repeat(12,1fr);
   grid-gap: 16px 32px;
-  grid-column-gap: 0;
+  grid-column-gap: 16px;
   box-sizing: border-box;
 }
 .container-card{
@@ -51,7 +51,6 @@ figure{
   border-radius: 8px;
   position: relative;
   box-sizing: inherit;
-  min-width: 350px;
 }
 .card-corpo time{
   opacity: .7;
@@ -70,11 +69,9 @@ figure{
   color: #5f6368 !important;
 }
 
-
-
-.card-text{
+.card-corpo p{
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -87,12 +84,9 @@ figure{
   height: 100vh;
   border: solid gray 1px;
   background-color: white;
-  z-index: 99999999;
+  z-index: 3;
 }
 
-#mural-ic{
-  width: calc(100vw - 300px);
-}
 #logo-ic{
   background-color: white;
   border-radius: 50px;
@@ -118,8 +112,14 @@ figure{
 .custom-file-input{
   cursor: pointer;
 }
+.modal-content{
+  min-height: 100vh !important;
+}
+.modal-dialog{
+  margin: 0 0 0 0 !important;
+}
 
-@media (max-width: 576px){
+@media (max-width: 758px){
   .card-imagem{
     width: 72px;
     height: 72px;
@@ -133,12 +133,12 @@ figure{
     height: auto;
     background-color: white;
   }
-  #mural-ic{
-    width: 100%;
-  }
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .container-card {
     grid-column: span 6;
+  }
+  .modal-dialog{
+    margin: 0 290px 0 0 !important;
   }
 }

@@ -115,14 +115,12 @@ class DaoNoticia {
     return $pojo;
   }
 
-  public function show($max) {
+  public function show($n) {
     try {
-      $sql = "SELECT * FROM noticias ORDER BY created_at ASC LIMIT :max;";
+      $sql = "SELECT * FROM noticias ORDER BY created_at DESC LIMIT " . $n . ';';
       $p_sql = Conexao::getInstance()->prepare($sql);
-      $p_sql->bindValue(":max", $max);
-      print_r( $p_sql);
       $p_sql->execute();
-      return $p_sql->fetch(PDO::FETCH_ASSOC);
+      return $p_sql->fetchAll(PDO::FETCH_ASSOC);
     } catch (Exception $e) {
       print "<pre>Ocorreu um erro ao tentar executar a ação Mostrar Noticias" .
         "\nErro: Código: " . $e->getCode() . "\nMensagem: " . $e->getMessage() . "</pre>";
