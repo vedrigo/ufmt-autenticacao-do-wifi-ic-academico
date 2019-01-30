@@ -1,7 +1,7 @@
 <?php
 
-require_once "conexao.php";
-require_once "pojo_noticia.php";
+require "conexao.php";
+require "pojo_noticia.php";
 
 class DaoNoticia {
 

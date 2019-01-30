@@ -32,7 +32,7 @@ figure{
   width: 100%;
   color: #202124;
   vertical-align: top;
-  min-height: 140px;
+  min-height: 132px;
   flex-wrap: wrap;
 }
 .container-cards{
@@ -80,11 +80,10 @@ figure{
   position: fixed;
   top: 0;
   right: 0;
-  width: 300px;
-  height: 100vh;
-  border: solid gray 1px;
+  width: 268px;
   background-color: white;
   z-index: 3;
+  margin: 16px;
 }
 
 #logo-ic{
@@ -118,7 +117,19 @@ figure{
 .modal-dialog{
   margin: 0 0 0 0 !important;
 }
-
+.hr-com-texto{
+  text-align: center;
+}
+.hr-com-texto hr{
+  margin-bottom: -12px;
+}
+.hr-com-texto span{
+  background-color: white;
+  padding: 0 10px;
+}
+#container-pagina-inicial{
+  padding: 0 30px;
+}
 @media (max-width: 758px){
   .card-imagem{
     width: 72px;
@@ -129,9 +140,12 @@ figure{
   }
   #painel-login{
     position: relative;
-    width: 100%;
+    width: calc(100vw - 46px);
     height: auto;
     background-color: white;
+  }
+  #container-pagina-inicial{
+    padding: 0;
   }
 }
 @media (min-width: 1200px) {
@@ -141,4 +155,5 @@ figure{
   .modal-dialog{
     margin: 0 290px 0 0 !important;
   }
+
 }

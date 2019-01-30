@@ -19,11 +19,17 @@
         <div class="modal-content" style="min-height: 100vh; width: 100vw">
             <div class="modal-header">
                 <button style="margin-left: 16px" type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><- Voltar</span>
+                    <i class="fa fa-arrow-left"></i><span> Voltar</span>
                 </button>
             </div>
             <div class="modal-body">
-                <?php echo $noticia['texto'] ?>
+              <div class="container">
+                <h4><?php echo $noticia['titulo'] ?></h4>
+                <img src="<?php echo $noticia['imagem'] ?>">
+                <div class="container-artigo">
+                  <?php echo $noticia['texto'] ?>
+                </div>
+              </div>
             </div>
         </div>
     </div>
