@@ -1,6 +1,6 @@
 <div class="container-card">
   <figure class="card-imagem">
-    <img src="assets/img/first-example.png">
+    <img src="uploads/<?php echo $noticia['imagem'] ?>">
   </figure>
   <div class="card-corpo">
     <div class="linha-card">

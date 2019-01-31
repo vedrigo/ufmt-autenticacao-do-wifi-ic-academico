@@ -1,5 +1,5 @@
 <div id="painel-login">
-  <div class="container" style="border: 1px solid #dadce0; display: flex; flex-wrap: wrap; height: calc(100vh - 36px); border-radius: 12px;">
+  <div class="container" style="border: 1px solid #dadce0; display: flex; flex-wrap: wrap; min-height: calc(100vh - 36px); border-radius: 12px;">
     <div class="container-fluid">
     <form>
       <div class="row mb-4">
@@ -46,7 +46,7 @@
     <div class="container-fluid" style="align-self: flex-end">
     <div class="row" >
       <div class="col-12 mt-3">
-        <a href="painel.php" class="float-right" style="margin-bottom:10px;font-size:14px;margin-right:-8px;color:gray;">Área do administrador</a>
+        <a href="painel.php?vou_para=painel.php" class="float-right" style="margin-bottom:10px;font-size:14px;margin-right:-8px;color:gray;">Área do administrador</a>
       </div>
     </div>
     </div>

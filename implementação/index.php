@@ -1,6 +1,6 @@
 <?php require 'class/noticia.php'; ?>
+<?php require 'class/mural.php'; ?>
 <?php require 'class/functions.php' ?>
-<?php require 'autenticar.php' ?>
 
 
 <!doctype html>
@@ -16,23 +16,13 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<style>
-  #container-pagina-inicial {
-    margin-right: 300px;
-  }
-
-  @media (max-width: 768px) {
-    #container-pagina-inicial {
-      margin-right: 0
-    }
-  }
-</style>
 
 <body>
 <?php include 'partials/login.php' ?>
-<?php $noticias = DaoNoticia::getInstance()->show(4); ?>
+<?php  $noticias = DaoNoticia::getInstance()->show(4); ?>
+<?php  $mural = DaoMural::getInstance()->show(4); ?>
 
-<div id="container-pagina-inicial">
+<div class="container-margin-login">
   <div class="container mb-5 mt-5">
     <div id="noticias-ic">
       <h3 class="mb-3">Notícias do IC:</h3>
@@ -61,14 +51,14 @@
           <h3>Mural Publico:</h3>
         </div>
         <div class="col-3">
-          <a class="btn btn-light float-right" href="form_noticia.php">Adicionar</a>
+          <a class="btn btn-light float-right" href="form_mural.php">Adicionar</a>
         </div>
       </div>
       <div style="display: block">
         <div class='container-cards'>
           <?php
-          for ($i = 0; $i < count($noticias); $i += 1) {
-            $noticia = $noticias[$i];
+          for ($i = 0; $i < count($mural); $i += 1) {
+            $noticia = $mural[$i];
             include 'partials/horizontal-card.php';
           }
           ?>

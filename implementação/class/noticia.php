@@ -1,7 +1,7 @@
 <?php
 
-require "conexao.php";
-require "pojo_noticia.php";
+require_once "conexao.php";
+require_once "pojo_noticia.php";
 
 class DaoNoticia {
 
@@ -104,11 +104,11 @@ class DaoNoticia {
     $pojo->setStatus($row['status']);
     return $pojo;
   }
-  public function carregarNoticia() {
+  public function carregarNoticia($imagem) {
     $pojo = new PojoNoticia();
     isset($_POST['titulo']) ? $pojo->setTitulo($_POST['titulo']) : '';
     isset($_POST['texto']) ? $pojo->setTexto($_POST['texto']) : '';
-    isset($_POST['imagem']) ? $pojo->setimagem($_POST['imagem']) : '';
+    $pojo->setImagem($imagem);
     isset($_POST['status']) ? $pojo->setStatus($_POST['status']) : '';
     isset($_POST['id']) ? $pojo->setId($_POST['id']) : '';
 

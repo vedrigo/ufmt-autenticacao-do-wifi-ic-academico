@@ -1,3 +1,16 @@
+@font-face {
+  font-family: Ubuntu-Bold;
+  src: url('assets/fonts/ubuntu/Ubuntu-Bold.ttf');
+}
+@font-face {
+  font-family: FontAwesome;
+  src: url('assets/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf');
+}
+
+body{
+  font-family: Ubuntu;
+}
+
 figure, menu, p, time, h1, h2, h3, h4, h5, h6{
   margin: 0;
   padding: 0;
@@ -127,8 +140,10 @@ figure{
   background-color: white;
   padding: 0 10px;
 }
-#container-pagina-inicial{
+.container-margin-login{
   padding: 0 30px;
+  margin-right: 300px;
+
 }
 @media (max-width: 758px){
   .card-imagem{
@@ -144,8 +159,9 @@ figure{
     height: auto;
     background-color: white;
   }
-  #container-pagina-inicial{
+  .container-margin-login{
     padding: 0;
+    margin-right: 0
   }
 }
 @media (min-width: 1200px) {

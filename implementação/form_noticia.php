@@ -1,3 +1,5 @@
+<?php require 'autenticar.php' ?>
+
 <?php
 
 ini_set("display_errors", 1);
@@ -11,9 +13,18 @@ if (isset($_POST['_method'])) {
   } elseif ($m == 'DELETE') {
   } elseif ($m == 'POST') {
     require_once "class/noticia.php";
-    include_once 'class/upload.php';
-    $dao = DaoNoticia::getInstance();
-    $dao->Inserir($dao->carregarNoticia());
+    require_once 'class/upload.php';
+    if(isset($_POST['imagem'])){
+
+    }
+      $up = upload('imagem');
+    if($up[0]){
+      $dao = DaoNoticia::getInstance();
+      echo $up[1];
+      $dao->Inserir($dao->carregarNoticia($up[1]));
+    }else{
+      $msg = 'erro ao enviar imagem.';
+    }
 
   }
 }
@@ -35,21 +46,16 @@ if (isset($_POST['_method'])) {
 
 </head>
 
-<body>
-<div class="container-fluid">
-  <a class="btn" href="index.php">
-    <i class="fa fa-arrow-left"></i> Voltar</a>
-</div>
+<body style="background-color: #f8f9fc">
+
 <div class="container">
-  <h2>Enviar nova postagem para o mural publico:</h2>
-  <p>Atenção, ao enviar uma postagem temos o prazo de 24 horas para publicar. </p>
   <form method="post" action="#" enctype="multipart/form-data">
     <input name="_method" type="hidden" value="POST"/>
     <div class="input-group mb-3 mt-3">
       <div class="input-group-prepend">
         <span class="input-group-text">Título:</span>
       </div>
-      <input name="titulo" type="text" class="form-control">
+      <input name="titulo" type="text" class="form-control" required>
     </div>
 
     <div class="input-group mb-3">
@@ -77,7 +83,7 @@ if (isset($_POST['_method'])) {
         <option value="rascunho">Rascunho</option>
       </select>
     </div>
-    <input type="submit" class="btn btn-light mb-3">
+    <input type="submit" class="btn btn-light mb-3" value="Enviar">
   </form>
 </div>
 <script src="assets/js/jquery-3.3.1.min.js"></script>

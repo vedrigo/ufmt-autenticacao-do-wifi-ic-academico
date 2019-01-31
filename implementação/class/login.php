@@ -38,8 +38,7 @@ if($total)
     // TUDO OK! Agora, passa os dados para a sessão e redireciona o usuário
     $_SESSION["id_usuario"]  = $dados["id"];
     $_SESSION["nome_usuario"] = stripslashes($dados["nome"]);
-    header("Location: ../index.php");
-    exit;
+    vai($_POST['vai_para']);
   }
   // Senha inválida
   else{
@@ -53,4 +52,18 @@ else
   echo "O login fornecido por você é inexistente!";
   exit;
 }
-?>
+
+function vai($file){
+  if($file == 'painel.php'){
+    header_l('../painel.php');
+  }elseif ($file == 'form_noticia.php'){
+    header_l('../form_noticia.php');
+  }else{
+    echo 'viish';
+  }
+
+}
+
+function header_l($file){
+  header("Location: " . $file);
+}
