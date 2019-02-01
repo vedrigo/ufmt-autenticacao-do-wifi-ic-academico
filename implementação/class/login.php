@@ -55,11 +55,11 @@ else
 
 function vai($file){
   if($file == 'painel.php'){
-    header_l('http://localhost/IC_ACADEMICO/implementação/pages/painel.php');
+    header_l('http://'. $_SERVER['HTTP_HOST'] .'/IC_ACADEMICO/implementação/pages/painel.php');
   }elseif ($file == 'form_noticia.php'){
-    header_l('http://localhost/IC_ACADEMICO/implementação/pages/form_noticia.php');
+    header_l('http://'. $_SERVER['HTTP_HOST'] .'/IC_ACADEMICO/implementação/pages/form_noticia.php');
   }else{
-    header_l('http://localhost/IC_ACADEMICO/implementação/pages/painel.php');
+    header_l('http://'. $_SERVER['HTTP_HOST'] .'/IC_ACADEMICO/implementação/pages/painel.php');
   }
 
 }
