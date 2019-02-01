@@ -27,8 +27,7 @@
   <!-- Core plugin JavaScript-->
   <script src="../assets/js/jquery.easing.min.js"></script>
 
-  <!-- Custom scripts for all pages-->
-  <script src="../assets/js/sb-admin-2.js"></script>
+
 
 </head>
 
@@ -214,6 +213,8 @@
 <a class="scroll-to-top rounded" href="#page-top">
   <i class="fas fa-angle-up"></i>
 </a>
+<!-- Custom scripts for all pages-->
+<script src="../assets/js/sb-admin-2.js"></script>
 
 
 
