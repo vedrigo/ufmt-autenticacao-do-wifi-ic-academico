@@ -1,10 +1,10 @@
 <div id="painel-login">
-  <div class="container" style="border: 1px solid #dadce0; display: flex; flex-wrap: wrap; min-height: calc(100vh - 36px); border-radius: 12px;">
+  <div class="container" style="border: 1px solid #dadce0; display: flex; flex-wrap: wrap; border-radius: 12px;">
     <div class="container-fluid">
     <form>
       <div class="row mb-4">
         <div class="col col-sm-12 text-center">
-          <img id="logo-ic" src="http://localhost/IC_ACADEMICO/implementação/assets/img/logo-ic.png" max-height="80" alt="" style="max-width: 100%">
+          <img id="logo-ic" src="http://<?php  echo $_SERVER['SERVER_NAME'] ?>/IC_ACADEMICO/implementação/assets/img/logo-ic.png" max-height="80" alt="" style="max-width: 100%">
         </div>
       </div>
 
@@ -46,7 +46,7 @@
     <div class="container-fluid" style="align-self: flex-end">
     <div class="row" >
       <div class="col-12 mt-3">
-        <a href="http://localhost/IC_ACADEMICO/implementação/pages/painel.php?vou_para=painel.php" class="float-right" style="margin-bottom:10px;font-size:14px;margin-right:-8px;color:gray;">Área do administrador</a>
+        <a href="http://<?php  echo $_SERVER['SERVER_NAME'] ?>/IC_ACADEMICO/implementação/pages/painel.php?vou_para=painel.php" class="float-right" style="margin-bottom:10px;font-size:14px;margin-right:-8px;color:gray;">Área do administrador</a>
       </div>
     </div>
     </div>

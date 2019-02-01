@@ -170,6 +170,9 @@ figure{
   }
 }
 @media (min-width: 1200px) {
+  #painel-login > .container{
+    min-height: calc(100vh - 36px);
+  }
   .news img, .news figure{
     max-width: 700px;
     max-height: 300px;

@@ -25,7 +25,7 @@
             <div class="modal-body">
               <div class="container">
                 <h4 class="mb-5"><?php echo $noticia['titulo'] ?></h4>
-                <img src="http://localhost/IC_ACADEMICO/implementação/uploads/<?php echo $noticia['imagem'] ?>">
+                <img src="http://<?php echo $_SERVER['SERVER_NAME'] ?>/IC_ACADEMICO/implementação/uploads/<?php echo $noticia['imagem'] ?>">
                 <div class="container-artigo">
                   <?php echo $noticia['texto'] ?>
                 </div>
