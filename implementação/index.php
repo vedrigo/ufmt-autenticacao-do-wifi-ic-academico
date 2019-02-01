@@ -1,6 +1,6 @@
-<?php require 'class/noticia.php'; ?>
-<?php require 'class/mural.php'; ?>
-<?php require 'class/functions.php' ?>
+<?php require_once 'class/noticiaDAO.php'; ?>
+<?php require_once 'class/muralDAO.php'; ?>
+<?php require_once 'class/functions.php' ?>
 
 
 <!doctype html>
@@ -18,9 +18,9 @@
 
 
 <body>
-<?php include 'partials/login.php' ?>
+<?php include 'partials/login_wifi.php' ?>
 <?php  $noticias = DaoNoticia::getInstance()->show(4); ?>
-<?php  $mural = DaoMural::getInstance()->show(4); ?>
+<?php  $mural = DaoMural::getInstance()->show(10); ?>
 
 <div class="container-margin-login">
   <div class="container mb-5 mt-5">
@@ -51,7 +51,7 @@
           <h3>Mural Publico:</h3>
         </div>
         <div class="col-3">
-          <a class="btn btn-light float-right" href="form_mural.php">Adicionar</a>
+          <a class="btn btn-light float-right" href="pages/form_mural.php">Adicionar</a>
         </div>
       </div>
       <div style="display: block">

@@ -1,7 +1,7 @@
 <?php
 //recebe o nome do input
 function upload($name){
-  $target_dir = "uploads/";
+  $target_dir = "../uploads/";
   $uploadOk = 1;
   $imageFileType = strtolower(pathinfo(basename($_FILES[$name]["name"]),PATHINFO_EXTENSION));
   $file = time() . '.' . $imageFileType;

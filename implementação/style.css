@@ -47,6 +47,11 @@ figure{
   vertical-align: top;
   min-height: 132px;
   flex-wrap: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-corpo p{
+  max-height: 70px;
 }
 .container-cards{
   display: grid;
@@ -165,6 +170,21 @@ figure{
   }
 }
 @media (min-width: 1200px) {
+  .news img, .news figure{
+    max-width: 700px;
+    max-height: 300px;
+  }
+  .news h1, .news h2, .news h3, .news h4{
+    max-width: 800px;
+  }
+  .news p, .news .modal-body .container div, .news a, .news ul, .news ol, .news li, .news span{
+    max-width: 600px;
+  }
+  .news .modal-body >.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .container-card {
     grid-column: span 6;
   }
