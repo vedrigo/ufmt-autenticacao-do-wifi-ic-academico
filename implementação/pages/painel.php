@@ -20,6 +20,16 @@
   <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
 
 
+  <!-- Bootstrap core JavaScript-->
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="../assets/js/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="../assets/js/sb-admin-2.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -120,6 +130,10 @@
 
       <!-- Topbar -->
       <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <!-- Sidebar Toggle (Topbar) -->
+        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+          <i class="fa fa-bars"></i>
+        </button>
 
         <!-- Topbar Navbar -->
         <ul class="navbar-nav ml-auto">
@@ -202,15 +216,7 @@
 </a>
 
 
-<!-- Bootstrap core JavaScript-->
-<script src="../assets/js/jquery-3.3.1.min.js"></script>
-<script src="../assets/js/bootstrap.bundle.min.js"></script>
 
-<!-- Core plugin JavaScript-->
-<script src="../assets/js/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="../assets/js/sb-admin-2.js"></script>
 </body>
 
 </html>

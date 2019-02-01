@@ -37,11 +37,6 @@ if (isset($_POST['_method'])) {
   <link rel="stylesheet" href="../style.css">
   <script src="../vendor/ckeditor/ckeditor.js"></script>
 
-<style>
-  #cke_texto{
-   width: calc(100% - 72px);
-  }
-</style>
 
 
 <div class="container">
@@ -64,13 +59,9 @@ if (isset($_POST['_method'])) {
       </div>
     </div>
 
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text">Texto:</span>
-      </div>
-      <textarea name="texto" id="texto" class="form-control" style="min-height: 200px"></textarea>
-    </div>
-    <div class="input-group mb-3">
+      <textarea name="texto" id="texto" style="min-height: 200px"></textarea>
+
+    <div class="input-group mt-3 mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text">Status:</span>
       </div>
@@ -90,6 +81,6 @@ if (isset($_POST['_method'])) {
         var fileName = $(this).val();
         //replace the "Choose a file" label
         $(this).next('.custom-file-label').html(fileName);
-    })
+    });
 </script>
 

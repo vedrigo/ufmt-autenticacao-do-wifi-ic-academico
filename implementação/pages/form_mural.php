@@ -60,12 +60,10 @@ if (!empty($_POST)) {
   }
 </style>
 <body>
-<?php include_once '../partials/login_wifi.php' ?>
 <div class="container-fluid mb-4">
   <a class="btn" href="../index.php">
     <i class="fa fa-arrow-left"></i> Voltar</a>
 </div>
-<div class="container-margin-login">
 <div class="container mb-3">
   <?php if($flash['error'] != ''):?>
   <div class="alert alert-danger" role="alert">
@@ -105,8 +103,8 @@ if (!empty($_POST)) {
       <textarea name="texto" class="form-control" style="min-height: 200px"></textarea>
     </div>
     <input type="submit" class="btn btn-light mb-3" value="Enviar">
-  </form>
-</div>
+  </form
+
 </div>
 <script src="../assets/js/jquery-3.3.1.min.js"></script>
 <script src="../assets/js/popper.min.js"></script>

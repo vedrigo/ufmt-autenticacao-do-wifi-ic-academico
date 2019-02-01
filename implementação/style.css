@@ -160,7 +160,7 @@ figure{
   }
   #painel-login{
     position: relative;
-    width: calc(100vw - 46px);
+    width: calc(100vw - 32px);
     height: auto;
     background-color: white;
   }
@@ -173,26 +173,8 @@ figure{
   #painel-login > .container{
     min-height: calc(100vh - 36px);
   }
-  .news img, .news figure{
-    max-width: 700px;
-    max-height: 300px;
-  }
-  .news h1, .news h2, .news h3, .news h4{
-    max-width: 800px;
-  }
-  .news p, .news .modal-body .container div, .news a, .news ul, .news ol, .news li, .news span{
-    max-width: 600px;
-  }
-  .news .modal-body >.container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
   .container-card {
     grid-column: span 6;
-  }
-  .modal-dialog{
-    margin: 0 290px 0 0 !important;
   }
 
 }

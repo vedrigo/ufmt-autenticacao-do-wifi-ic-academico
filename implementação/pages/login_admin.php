@@ -28,7 +28,13 @@
   <!--===============================================================================================-->
 </head>
 <body>
-
+<style>
+  @media (max-width: 758px) {
+    #voltar-1 {
+      margin-left: -20px;
+    }
+  }
+</style>
 <div class="limiter">
   <div class="container-login100" style="align-items:baseline;">
     <div class="container">
@@ -39,10 +45,10 @@
       <?php endif; ?>
     </div>
     <div class="container-fluid">
-      <a class="btn" href="../index.php">
+      <a id="voltar-1" class="btn" href="../index.php">
         <i class="fa fa-arrow-left" style="margin-right: 15px;"></i>Voltar</a>
     </div>
-    <div class="wrap-login100 p-t-50 p-b-90">
+    <div class="wrap-login100 p-b-90">
       <form class="login100-form validate-form flex-sb flex-w" method="post" action="../class/login.php">
         <input name="vai_para" type="hidden" value="<?php echo $_GET['vou_para'] ?>">
         <span class="login100-form-title p-b-51">
