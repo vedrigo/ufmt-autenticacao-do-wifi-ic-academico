@@ -11,23 +11,23 @@
 </style>
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Lista do murals</h6>
+    <h6 class="m-0 font-weight-bold text-primary">Lista de Usuarios</h6>
   </div>
   <div class="card-body mg-2">
     <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
         <tr>
-          <th>Titulo</th>
-          <th>Data</th>
+          <th>Nome</th>
+          <th>Usuario</th>
           <th>Ações</th>
         </tr>
         </thead>
         <tbody>
         <?php for ($i = 0; $i < count($noticias); $i += 1) : $noticia = $noticias[$i]; ?>
           <tr>
-            <td><?php echo $noticia['titulo'] ?></td>
-            <td style="white-space: nowrap"><?php echo $noticia['created_at'] ?></td>
+            <td><?php echo $noticia['nome'] ?></td>
+            <td><?php echo $noticia['login'] ?></td>
             <td><button class="btn btn-sm" onclick="apagar(<?php echo $noticia['id'] ?>)" id="<?php echo $noticia['id'] ?>">Apagar</button></td>
           </tr>
         <?php endfor; ?>
@@ -40,26 +40,28 @@
 <script src="../assets/js/dataTables.bootstrap4.min.js"></script>
 
 <script>
-  $(document).ready(function () {
-      $('#dataTable').DataTable();
-  });
-
-  function apagar(idx) {
-    $.ajax({
-      url: "../class/apagar_mural.php",
-      type: 'post',
-      data: {
-          id: idx
-      },
-      beforeSend: function () {
-          $('#' + idx).html("Enviando...");
-      }
-    })
-    .done(function () {
-        $('#' + idx).html('Apagado');
-    })
-    .fail(function (jqXHR, textStatus, msg) {
-        alert(msg);
+    $(document).ready(function () {
+        $('#dataTable').DataTable();
     });
-  }
+
+    function apagar(idx) {
+        if(confirm('Tem certeza que deseja apagar o usuario?')) {
+            $.ajax({
+                url: "../class/apagar_usuario.php",
+                type: 'post',
+                data: {
+                    id: idx
+                },
+                beforeSend: function () {
+                    $('#' + idx).html("Enviando...");
+                }
+            })
+                .done(function () {
+                    $('#' + idx).html('Apagado');
+                })
+                .fail(function (jqXHR, textStatus, msg) {
+                    alert(msg);
+                });
+        }
+    }
 </script>

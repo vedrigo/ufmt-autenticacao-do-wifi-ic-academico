@@ -20,7 +20,7 @@
 <body>
 <?php include 'partials/login_wifi.php' ?>
 <?php  $noticias = DaoNoticia::getInstance()->show(4); ?>
-<?php  $mural = DaoMural::getInstance()->show(10); ?>
+<?php  $mural = DaoMural::getInstance()->show(10, 'Publicado'); ?>
 
 <div class="container-margin-login">
   <div class="container mb-5 mt-5">

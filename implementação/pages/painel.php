@@ -28,7 +28,14 @@
   <!-- Core plugin JavaScript-->
   <script src="../assets/js/jquery.easing.min.js"></script>
 
-
+  <style>
+    @media (max-width: 758px){
+      .mg-2{
+        padding-left: 2px;
+        padding-right: 2px;
+      }
+    }
+  </style>
 
 </head>
 
@@ -142,7 +149,7 @@
       <!-- End of Topbar -->
 
       <!-- Begin Page Content -->
-      <div class="container-fluid">
+      <div class="container-fluid mg-2">
 
         <?php
           if ($_GET['page'] == 'criar_noticia'){
@@ -157,6 +164,12 @@
             include_once '../partials/gerenciar_mural.php';
           }elseif ($_GET['page'] == 'inicio'){
             include_once '../partials/aprovar_mural.php';
+          }elseif ($_GET['page'] == 'criar_usuario'){
+            include_once '../partials/form_usuario.php';
+          }elseif ($_GET['page'] == 'gerenciar_usuarios'){
+            require_once '../class/usuarioDAO.php';
+            $noticias = DaoUsuario::getInstance()->show(100);
+            include_once '../partials/gerenciar_usuarios.php';
           }else{
             include_once '../partials/aprovar_mural.php';
           }
@@ -192,12 +205,14 @@
 <script src="../assets/js/sb-admin-2.js"></script>
 
 <script>
-  var page = '<?php echo $_GET['page'] ?>';
+  var page = "<?php if(isset($_GET['page'])){echo($_GET['page']);} ?>";
+  if($(window).width() > 768){
   if(page == 'criar_noticia' || page == 'gerenciar_noticias' || page == 'gerenciar_mural'){
       $('#collapsePostagens').attr('class', 'collapse show');
   }
   if(page == 'criar_usuario' || page == 'gerenciar_usuarios'){
       $('#collapseUsuarios').attr('class', 'collapse show');
+  }
   }
 </script>
 

@@ -1,5 +1,7 @@
 <?php
-
+ini_set("display_errors", 1);
+ini_set("display_startup_erros", 1);
+error_reporting(E_ALL);
 require_once "conexao.php";
 require_once "noticia.php";
 
@@ -46,7 +48,7 @@ class DaoMural {
     }
   }
 
-  public function Editar(Noticias $noticia) {
+  public function Editar(Noticia $noticia) {
     try {
       $sql = "UPDATE mural set
                 titulo = :titulo,
@@ -95,8 +97,9 @@ class DaoMural {
         "\nErro: Código: " . $e->getCode() . "\nMensagem: " . $e->getMessage() . "</pre>";
     }
   }
+
   private function populaNoticia($row) {
-    $pojo = new PojoNoticia;
+    $pojo = new Noticia;
     $pojo->setId($row['id']);
     $pojo->setTitulo($row['titulo']);
     $pojo->setTexto($row['texto']);
@@ -104,6 +107,7 @@ class DaoMural {
     $pojo->setStatus($row['status']);
     return $pojo;
   }
+
   public function carregarNoticia($imagem) {
     $pojo = new Noticia();
     isset($_POST['titulo']) ? $pojo->setTitulo($_POST['titulo']) : '';
@@ -115,9 +119,9 @@ class DaoMural {
     return $pojo;
   }
 
-  public function show($n) {
+  public function show($n, $status) {
     try {
-      $sql = "SELECT * FROM mural ORDER BY created_at DESC LIMIT " . $n . ';';
+      $sql = "SELECT * FROM mural WHERE status = '". $status ."' ORDER BY created_at DESC LIMIT " . $n . ';';
       $p_sql = Conexao::getInstance()->prepare($sql);
       $p_sql->execute();
       return $p_sql->fetchAll(PDO::FETCH_ASSOC);

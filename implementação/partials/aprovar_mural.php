@@ -1,7 +1,7 @@
 <?php
 require_once '../class/muralDAO.php';
 require_once '../class/functions.php';
-$mural = DaoMural::getInstance()->show(10);
+$mural = DaoMural::getInstance()->show(10, 'Rivisão');
 ?>
 <div class='container-cards'>
   <?php
@@ -17,9 +17,15 @@ $mural = DaoMural::getInstance()->show(10);
         <p><?php echo $noticia['titulo'] ?></p>
       </div>
       <div class="linha-card linha-inferior">
-        <time><?php echo Functions::time_elapsed_string($noticia['created_at']) ?></time>
+        <?php $f = new Functions ?>
+        <time><?php echo $f->time_elapsed_string($noticia['created_at']) ?></time>
         <a class="veja-mais" data-toggle="modal" data-target="#card<?php echo $noticia['id'] ?>">Veja mais</a>
       </div>
+    </div>
+    <div class="card-footer">
+      <button id="apagar<?php echo $noticia['id'] ?>" onclick="apagar(<?php echo $noticia['id'] ?>)"
+              class="btn btn-link">Apagar</button>
+      <button id="aceitar<?php echo $noticia['id'] ?>" onclick="aceitar(<?php echo $noticia['id'] ?>)" class="btn btn-link float-right">Aceitar</button>
     </div>
   </div>
 
@@ -46,8 +52,53 @@ $mural = DaoMural::getInstance()->show(10);
     </div>
   </div>
 <?php endfor; ?>
+  <script>
+    function apagar(idx) {
+      if(confirm('Tem certeza que deseja apagar?')){
+        $.ajax({
+            url: "../class/apagar_mural.php",
+            type: 'post',
+            data: {
+                id: idx
+            },
+            beforeSend: function () {
+                $('#apagar' + idx).html("Enviando...");
+            }
+        })
+        .done(function () {
+            $('#apagar' + idx).html('Apagado');
+            $('#aceitar' + idx).html('');
+            $('#aceitar' + idx).attr('onclick', '');
+            $('#apagar' + idx).attr('onclick', '');
+        })
+        .fail(function (jqXHR, textStatus, msg) {
+            alert(msg);
+        });
+      }
+    }
+    function aceitar(idx) {
+        $.ajax({
+            url: "../class/aceitar_mural.php",
+            type: 'post',
+            data: {
+                id: idx
+            },
+            beforeSend: function () {
+                $('#' + idx).html("Enviando...");
+            }
+        })
+            .done(function () {
+                $('#aceitar' + idx).html('Publicado');
+                $('#apagar' + idx).html('');
+                $('#apagar' + idx).attr('onclick', '');
+                $('#aceitar' + idx).attr('onclick', '');
+            })
+            .fail(function (jqXHR, textStatus, msg) {
+                alert(msg);
+            });
+    }
+  </script>
   <style>
-
     .news img, .news figure{
       max-width: 700px;
       max-height: 300px;

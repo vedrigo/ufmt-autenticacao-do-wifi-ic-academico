@@ -7,7 +7,8 @@
       <p><?php echo $noticia['titulo'] ?></p>
     </div>
     <div class="linha-card linha-inferior">
-      <time><?php echo Functions::time_elapsed_string($noticia['created_at']) ?></time>
+      <?php $f = new Functions ?>
+      <time><?php echo $f->time_elapsed_string($noticia['created_at']) ?></time>
       <a class="veja-mais" data-toggle="modal" data-target="#card<?php echo $noticia['id'] ?>">Veja mais</a>
     </div>
   </div>

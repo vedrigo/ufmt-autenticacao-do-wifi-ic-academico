@@ -96,7 +96,7 @@ class DaoNoticia {
     }
   }
   private function populaNoticia($row) {
-    $pojo = new PojoNoticia;
+    $pojo = new Noticia;
     $pojo->setId($row['id']);
     $pojo->setTitulo($row['titulo']);
     $pojo->setTexto($row['texto']);
