@@ -42,5 +42,9 @@ function upload($name){
       $msg = "Houve um erro ao enviar seu arquivo.";
     }
   }
-  return [$uploadOk, $file];
+  return [$uploadOk, $file, $msg];
+}
+
+function delete_upload($name_file){
+
 }

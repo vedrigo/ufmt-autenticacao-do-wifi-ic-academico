@@ -72,10 +72,12 @@ class DaoNoticia {
 
   public function Deletar($id) {
     try {
+      $noticia = $this->BuscarPorCOD($id);
+
+
       $sql = "DELETE FROM noticias WHERE id = :id";
       $p_sql = Conexao::getInstance()->prepare($sql);
       $p_sql->bindValue(":id", $id);
-
       return $p_sql->execute();
     } catch (Exception $e) {
       print "<pre>Ocorreu um erro ao tentar executar a ação Deletar Noticia" .

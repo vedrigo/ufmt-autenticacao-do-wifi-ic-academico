@@ -154,24 +154,31 @@
         <?php
           if ($_GET['page'] == 'criar_noticia'){
             include_once '../partials/form_noticia.php';
+
           }elseif ($_GET['page'] == 'gerenciar_noticias'){
             require_once '../class/noticiaDAO.php';
             $noticias = DaoNoticia::getInstance()->show(100);
             include_once '../partials/gerenciar_noticias.php';
+
           }elseif ($_GET['page'] == 'gerenciar_mural'){
             require_once '../class/muralDAO.php';
-            $noticias = DaoMural::getInstance()->show(100);
+            $noticias = DaoMural::getInstance()->show(100, 'all');
             include_once '../partials/gerenciar_mural.php';
+
           }elseif ($_GET['page'] == 'inicio'){
             include_once '../partials/aprovar_mural.php';
+
           }elseif ($_GET['page'] == 'criar_usuario'){
             include_once '../partials/form_usuario.php';
+
           }elseif ($_GET['page'] == 'gerenciar_usuarios'){
             require_once '../class/usuarioDAO.php';
             $noticias = DaoUsuario::getInstance()->show(100);
             include_once '../partials/gerenciar_usuarios.php';
+
           }else{
             include_once '../partials/aprovar_mural.php';
+
           }
         ?>
 

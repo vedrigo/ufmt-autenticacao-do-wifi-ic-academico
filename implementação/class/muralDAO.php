@@ -121,7 +121,11 @@ class DaoMural {
 
   public function show($n, $status) {
     try {
-      $sql = "SELECT * FROM mural WHERE status = '". $status ."' ORDER BY created_at DESC LIMIT " . $n . ';';
+      if($status == 'all'){
+        $sql = "SELECT * FROM mural ORDER BY created_at DESC LIMIT " . $n . ';';
+      }else{
+        $sql = "SELECT * FROM mural WHERE status = '". $status ."' ORDER BY created_at DESC LIMIT " . $n . ';';
+      }
       $p_sql = Conexao::getInstance()->prepare($sql);
       $p_sql->execute();
       return $p_sql->fetchAll(PDO::FETCH_ASSOC);
