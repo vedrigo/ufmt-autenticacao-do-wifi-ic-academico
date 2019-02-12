@@ -74,11 +74,21 @@ class DaoMural {
 
   public function Deletar($id) {
     try {
-      $sql = "DELETE FROM mural WHERE id = :id";
-      $p_sql = Conexao::getInstance()->prepare($sql);
-      $p_sql->bindValue(":id", $id);
-
-      return $p_sql->execute();
+      $noticia = $this->BuscarPorCOD($id);
+      $ok = 0;
+      if($noticia->getImagem() == ''){
+        $ok = 1;
+      }elseif(unlink('../uploads/' . $noticia->getImagem())){
+        $ok = 1;
+      }
+      if($ok){
+        $sql = "DELETE FROM mural WHERE id = :id";
+        $p_sql = Conexao::getInstance()->prepare($sql);
+        $p_sql->bindValue(":id", $id);
+        return $p_sql->execute();
+      }else{
+        return 'erro';
+      }
     } catch (Exception $e) {
       print "<pre>Ocorreu um erro ao tentar executar a ação Deletar Noticia" .
         "\nErro: Código: " . $e->getCode() . "\nMensagem: " . $e->getMessage() . "</pre>";
@@ -119,12 +129,14 @@ class DaoMural {
     return $pojo;
   }
 
-  public function show($n, $status) {
+  public function show($n, $status, $page = 0) {
+    $start = $n * $page;
+    $end = $start + $n;
     try {
       if($status == 'all'){
         $sql = "SELECT * FROM mural ORDER BY created_at DESC LIMIT " . $n . ';';
       }else{
-        $sql = "SELECT * FROM mural WHERE status = '". $status ."' ORDER BY created_at DESC LIMIT " . $n . ';';
+        $sql = "SELECT * FROM mural WHERE status = '". $status ."' ORDER BY created_at DESC LIMIT " . $start . ',' . $end . ' ;';
       }
       $p_sql = Conexao::getInstance()->prepare($sql);
       $p_sql->execute();

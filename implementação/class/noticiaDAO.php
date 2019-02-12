@@ -73,12 +73,20 @@ class DaoNoticia {
   public function Deletar($id) {
     try {
       $noticia = $this->BuscarPorCOD($id);
-
-
-      $sql = "DELETE FROM noticias WHERE id = :id";
-      $p_sql = Conexao::getInstance()->prepare($sql);
-      $p_sql->bindValue(":id", $id);
-      return $p_sql->execute();
+      $ok = 0;
+      if($noticia->getImagem() == ''){
+        $ok = 1;
+      }elseif(unlink('../uploads/' . $noticia->getImagem())){
+        $ok = 1;
+      }
+      if($ok){
+        $sql = "DELETE FROM noticias WHERE id = :id";
+        $p_sql = Conexao::getInstance()->prepare($sql);
+        $p_sql->bindValue(":id", $id);
+        return $p_sql->execute();
+      }else{
+        return 'erro';
+      }
     } catch (Exception $e) {
       print "<pre>Ocorreu um erro ao tentar executar a ação Deletar Noticia" .
       "\nErro: Código: " . $e->getCode() . "\nMensagem: " . $e->getMessage() . "</pre>";
@@ -117,9 +125,10 @@ class DaoNoticia {
     return $pojo;
   }
 
-  public function show($n) {
+  public function show($n, $status, $page = 0) {
+    $start = $n * $page;
     try {
-      $sql = "SELECT * FROM noticias ORDER BY created_at DESC LIMIT " . $n . ';';
+      $sql = "SELECT * FROM noticias ORDER BY created_at DESC LIMIT " . $start . ',' . $n . ' ;';
       $p_sql = Conexao::getInstance()->prepare($sql);
       $p_sql->execute();
       return $p_sql->fetchAll(PDO::FETCH_ASSOC);

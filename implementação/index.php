@@ -19,8 +19,8 @@
 
 <body>
 <?php include 'partials/login_wifi.php' ?>
-<?php  $noticias = DaoNoticia::getInstance()->show(4); ?>
-<?php  $mural = DaoMural::getInstance()->show(10, 'Publicado'); ?>
+<?php  $noticias = DaoNoticia::getInstance()->show(2, 'Publicado'); ?>
+<?php  $mural = DaoMural::getInstance()->show(2, 'Publicado'); ?>
 
 <div class="container-margin-login">
   <div class="container mb-5 mt-5">
@@ -28,7 +28,7 @@
       <h3 class="mb-3">Notícias do IC:</h3>
 
       <div style="display: block">
-        <div class='container-cards'>
+        <div class='container-cards' id="container-noticia">
           <?php
           for ($i = 0; $i < count($noticias); $i += 1) {
             $noticia = $noticias[$i];
@@ -39,7 +39,7 @@
       </div>
       <div class="row">
         <div class="col-12 text-center">
-          <button class="btn btn-light mt-4 btn-block">Carregar Mais</button>
+          <button id="btn-noticia" class="btn btn-light mt-4 btn-block" onclick="carregar('noticia')">Carregar Mais</button>
         </div>
       </div>
     </div>
@@ -55,7 +55,7 @@
         </div>
       </div>
       <div style="display: block">
-        <div class='container-cards'>
+        <div class='container-cards' id="container-mural">
           <?php
           for ($i = 0; $i < count($mural); $i += 1) {
             $noticia = $mural[$i];
@@ -66,7 +66,7 @@
       </div>
       <div class="row">
         <div class="col-12 text-center">
-          <button class="btn btn-light mt-4 btn-block">Carregar Mais</button>
+          <button id="btn-mural" class="btn btn-light mt-4 btn-block" onclick="carregar('mural')">Carregar Mais</button>
         </div>
       </div>
     </div>
@@ -77,5 +77,57 @@
 <script src="assets/js/jquery-3.3.1.min.js"></script>
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.js"></script>
+
+<script>
+    var page_noticia = 1;
+    var page_mural = 1;
+    function carregar(post_type) {
+        $.ajax({
+            url: "class/carregar_mais.php",
+            type: 'post',
+            dataType: 'html',
+            cache: false,
+            data: {
+                post_type: post_type,
+                page: post(post_type)
+            },
+            beforeSend: function () {
+                $('#btn-' + post_type).html("Carregando...");
+            },
+            success : function(html){
+                if(html == ''){
+                    if(post_type == 'noticia'){
+                        $('#container-' + post_type).append(
+                            '<p style="text-align: center; grid-column: span 12">' +
+                            'Parece que não há mais Notícias para carregar!</p>');
+                            $('#btn-' + post_type).remove();
+
+                    }else{
+                        $('#container-' + post_type).append('<p style="text-align: center; grid-column: span 12">' +
+                            'Parece que não há mais Postagens do Mural para carregar!</p>');
+                            $('#btn-' + post_type).remove();
+                    }
+                }else{
+                    $('#container-' + post_type).append(html);
+                }
+            }
+        })
+            .done(function () {
+                $('#btn-' + post_type).html('Carregar Mais');
+                post_type == 'noticia' ? page_noticia += 1 : page_mural += 1;
+            })
+            .fail(function (jqXHR, textStatus, msg) {
+                $('#btn-' + post_type).html('Carregar Mais');
+                alert(msg);
+            });
+    }
+    function post(post_type) {
+        if (post_type == 'noticia'){
+            return page_noticia;
+        }else{
+            return page_mural;
+        }
+    }
+</script>
 </body>
 </html>

@@ -157,7 +157,7 @@
 
           }elseif ($_GET['page'] == 'gerenciar_noticias'){
             require_once '../class/noticiaDAO.php';
-            $noticias = DaoNoticia::getInstance()->show(100);
+            $noticias = DaoNoticia::getInstance()->show(100, 'all');
             include_once '../partials/gerenciar_noticias.php';
 
           }elseif ($_GET['page'] == 'gerenciar_mural'){

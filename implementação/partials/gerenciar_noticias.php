@@ -56,13 +56,17 @@
       },
       beforeSend: function () {
           $('#' + idx).html("Enviando...");
-      }
+      },
+        success : function(html){
+            $('.card-header').html(html);
+        }
     })
     .done(function () {
         $('#' + idx).html('Apagado');
     })
     .fail(function (jqXHR, textStatus, msg) {
         alert(msg);
+        $('#' + idx).html('Apagar');
     });
   }
 </script>

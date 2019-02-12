@@ -10,11 +10,12 @@ require_once '../class/upload.php';
 $flash['sucess'] = '';
 $flash['error'] = '';
 if (!empty($_POST)) {
-  if (isset($_FILES['imagem'])){
+  if ($_FILES['imagem']['size'] != 0){
 
     $up = upload('imagem');
     if(!$up[0]){
-      $flash['error'] = 'erro ao enviar imagem.';
+//      $flash['error'] = 'erro ao enviar imagem.';
+      $flash['error'] = $_FILES['imagem'];
     }else{
       $dao = DaoMural::getInstance();
       $dao->Inserir($dao->carregarNoticia($up[1]));
@@ -67,7 +68,7 @@ if (!empty($_POST)) {
 <div class="container mb-3">
   <?php if($flash['error'] != ''):?>
   <div class="alert alert-danger" role="alert">
-    <?php echo $flash['error']; ?>
+    <?php print_r($flash['error']); ?>
   </div>
   <?php endif; if($flash['sucess'] != ''): ?>
   <div class="alert alert-success" role="alert">

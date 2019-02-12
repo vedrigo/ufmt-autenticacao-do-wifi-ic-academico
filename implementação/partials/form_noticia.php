@@ -20,7 +20,6 @@ if (isset($_POST['_method'])) {
       $up = upload('imagem');
     if($up[0]){
       $dao = DaoNoticia::getInstance();
-      echo $up[1];
       $dao->Inserir($dao->carregarNoticia($up[1]));
     }else{
       $msg = 'erro ao enviar imagem.';

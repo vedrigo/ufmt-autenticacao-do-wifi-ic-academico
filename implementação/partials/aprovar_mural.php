@@ -10,9 +10,11 @@ $mural = DaoMural::getInstance()->show(10, 'Rivisão');
   ?>
   <div class="container-card" style="background-color: white;">
     <figure class="card-imagem">
-      <img src="../uploads/<?php echo $noticia['imagem'] ?>">
+      <?php $vish = 'style="padding-left: 16px !important"'; if($noticia['imagem'] != '') :  $vish = ''?>
+        <img src="../uploads/<?php echo $noticia['imagem'] ?>">
+      <?php endif; ?>
     </figure>
-    <div class="card-corpo">
+    <div class="card-corpo" <?php echo $vish ?>>
       <div class="linha-card">
         <p><?php echo $noticia['titulo'] ?></p>
       </div>
@@ -40,9 +42,11 @@ $mural = DaoMural::getInstance()->show(10, 'Rivisão');
         </div>
         <div class="modal-body">
           <div class="container">
-            <h4 class="mb-5"><?php echo $noticia['titulo'] ?></h4>
+            <h4 class="mb-5"><?php echo $noticia['titulo'] ?>
+                <?php if($noticia['imagem'] != '') : ?>
             <img class="mb-5"
                  src="http://<?php echo $_SERVER['SERVER_NAME'] ?>/IC_ACADEMICO/implementação/uploads/<?php echo $noticia['imagem'] ?>">
+                <?php endif; ?>
             <div class="container-artigo">
               <?php echo $noticia['texto'] ?>
             </div>
