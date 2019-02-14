@@ -72,6 +72,18 @@
     </div>
   </div>
 
+    <style>
+        .sticky-footer{padding:2rem 0;-ms-flex-negative:0;flex-shrink:0}
+        .bg-white{background-color:#fff!important}
+        .copyright{line-height:1;font-size:.8rem}
+    </style>
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Desenvolvido por Rodrigo Venâncio Veríssimo @ 2019</span>
+            </div>
+        </div>
+    </footer>
 </div>
 
 <script src="assets/js/jquery-3.3.1.min.js"></script>

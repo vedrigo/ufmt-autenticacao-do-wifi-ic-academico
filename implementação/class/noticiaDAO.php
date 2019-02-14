@@ -114,12 +114,12 @@ class DaoNoticia {
     $pojo->setStatus($row['status']);
     return $pojo;
   }
-  public function carregarNoticia($imagem) {
+  public function carregarNoticia($imagem = '') {
     $pojo = new Noticia();
     isset($_POST['titulo']) ? $pojo->setTitulo($_POST['titulo']) : '';
     isset($_POST['texto']) ? $pojo->setTexto($_POST['texto']) : '';
     $pojo->setImagem($imagem);
-    isset($_POST['status']) ? $pojo->setStatus($_POST['status']) : '';
+    isset($_POST['status']) ? $pojo->setStatus($_POST['status']) : 'Publicado';
     isset($_POST['id']) ? $pojo->setId($_POST['id']) : '';
 
     return $pojo;

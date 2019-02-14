@@ -26,12 +26,12 @@ $SQL = "SELECT id, nome, login, senha FROM usuarios WHERE login = '" . $login . 
 $result_id = Conexao::getInstance()->prepare($SQL) or die("Erro no banco de dados!");
 
 $total = $result_id->execute();
+// Obtém os dados do usuário, para poder verificar a senha e passar os demais dados para a sessão
+$dados = $result_id->fetch();
 
 // Caso o usuário tenha digitado um login válido o número de linhas será 1..
-if($total)
+if($dados)
 {
-  // Obtém os dados do usuário, para poder verificar a senha e passar os demais dados para a sessão
-  $dados = $result_id->fetch();
 
   // Agora verifica a senha
   if(!strcmp($senha, $dados["senha"])){
@@ -42,15 +42,13 @@ if($total)
   }
   // Senha inválida
   else{
-    echo "Senha inválida!";
-    exit;
+    header('Location: http://'. $_SERVER['HTTP_HOST'] . '/IC_ACADEMICO/implementação/pages/login_admin.php?erro=Senha Inválida');
   }
 }
 // Login inválido
 else
 {
-  echo "O login fornecido por você é inexistente!";
-  exit;
+  header('Location: http://'. $_SERVER['HTTP_HOST'] . '/IC_ACADEMICO/implementação/pages/login_admin.php?erro=Login Inválido');
 }
 
 function vai($file){

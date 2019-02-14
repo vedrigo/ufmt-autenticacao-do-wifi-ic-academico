@@ -14,17 +14,19 @@ if (isset($_POST['_method'])) {
   } elseif ($m == 'POST') {
     require_once "../class/noticiaDAO.php";
     require_once '../class/upload.php';
-    if(isset($_POST['imagem'])){
-
-    }
+    if ($_FILES['imagem']['size']) {
       $up = upload('imagem');
-    if($up[0]){
-      $dao = DaoNoticia::getInstance();
-      $dao->Inserir($dao->carregarNoticia($up[1]));
-    }else{
-      $msg = 'erro ao enviar imagem.';
-    }
+      if ($up[0]) {
+        $dao = DaoNoticia::getInstance();
+        $dao->Inserir($dao->carregarNoticia($up[1]));
+      } else {
+        $msg = 'erro ao enviar imagem.';
+      }
 
+    }else{
+      $dao = DaoNoticia::getInstance();
+      $dao->Inserir($dao->carregarNoticia());
+    }
   }
 }
 
@@ -60,16 +62,16 @@ if (isset($_POST['_method'])) {
 
       <textarea name="texto" id="texto" style="min-height: 200px"></textarea>
 
-    <div class="input-group mt-3 mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text">Status:</span>
-      </div>
-      <select class="custom-select" name="status">
-        <option value="publico" selected>Publico</option>
-        <option value="rascunho">Rascunho</option>
-      </select>
-    </div>
-    <input type="submit" class="btn btn-light mb-3" value="Enviar">
+<!--    <div class="input-group mt-3 mb-3">-->
+<!--      <div class="input-group-prepend">-->
+<!--        <span class="input-group-text">Status:</span>-->
+<!--      </div>-->
+<!--      <select class="custom-select" name="status">-->
+<!--        <option value="publico" selected>Publico</option>-->
+<!--        <option value="rascunho">Rascunho</option>-->
+<!--      </select>-->
+<!--    </div>-->
+    <input type="submit" class="btn btn-primary mb-3 mt-3 float-right" value="Enviar">
   </form>
 </div>
 <script src="../assets/js/bootstrap.js"></script>

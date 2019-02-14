@@ -4,25 +4,12 @@
   <title>Login V10</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--===============================================================================================-->
   <link rel="icon" type="image/png" href="../assets/img/favicon.ico"/>
-  <!--===============================================================================================-->
+  <!--Bootstrap usado no grid e na linha de voltar-->
   <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
-  <!--===============================================================================================-->
+  <!--Fontawesome usado na seta de voltar-->
   <link rel="stylesheet" type="text/css" href="../assets/css/fontawesome.min.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="../assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="../assets/css/hamburgers.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="../assets/css/animsition.min.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="../assets/css/select2.min.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="../assets/css/daterangepicker.css">
-  <!--===============================================================================================-->
+  <!--Util usado para os espaçamentos-->
   <link rel="stylesheet" type="text/css" href="../assets/css/util_v10.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/login_v10.css">
   <!--===============================================================================================-->
@@ -37,16 +24,16 @@
 </style>
 <div class="limiter">
   <div class="container-login100" style="align-items:baseline;">
+    <div class="container-fluid">
+      <a id="voltar-1" class="btn" href="../index.php">
+        <i class="fa fa-arrow-left" style="margin-right: 15px;"></i>Voltar</a>
+    </div>
     <div class="container">
       <?php if (isset($_GET['erro'])):?>
         <div class="alert alert-danger" role="alert">
           <?php echo $_GET['erro']; ?>
         </div>
       <?php endif; ?>
-    </div>
-    <div class="container-fluid">
-      <a id="voltar-1" class="btn" href="../index.php">
-        <i class="fa fa-arrow-left" style="margin-right: 15px;"></i>Voltar</a>
     </div>
     <div class="wrap-login100 p-b-90">
       <form class="login100-form validate-form flex-sb flex-w" method="post" action="../class/login.php">
@@ -55,30 +42,15 @@
 						Login
 					</span>
 
-        <div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
+        <div class="wrap-input100 validate-input m-b-16" data-validate="Usuario é obrigatório">
           <input class="input100" type="text" name="login" placeholder="Usuario">
           <span class="focus-input100"></span>
         </div>
 
 
-        <div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
+        <div class="wrap-input100 validate-input m-b-16" data-validate="Senha é obrigatório">
           <input class="input100" type="password" name="senha" placeholder="Senha">
           <span class="focus-input100"></span>
-        </div>
-
-        <div class="flex-sb-m w-full p-t-3 p-b-24">
-          <div class="contact100-form-checkbox">
-            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-            <label class="label-checkbox100" for="ckb1">
-              Lembrar-me
-            </label>
-          </div>
-
-          <div>
-            <a href="#" class="txt1">
-              Esqueceu a senha?
-            </a>
-          </div>
         </div>
 
         <div class="container-login100-form-btn m-t-17">
@@ -93,23 +65,8 @@
 </div>
 
 
-<div id="dropDownSelect1"></div>
-
-<!--===============================================================================================-->
+<!--Jquery é requisito de login-->
 <script src="../assets/js/jquery-3.3.1.min.js"></script>
-<!--===============================================================================================-->
-<script src="../assets/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-<script src="../assets/js/popper.min.js"></script>
-<script src="../assets/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-<script src="../assets/js/select2.min.js"></script>
-<!--===============================================================================================-->
-<script src="../assets/js/moment.min.js"></script>
-<script src="../assets/js/daterangepicker.js"></script>
-<!--===============================================================================================-->
-<script src="../assets/js/countdowntime.js"></script>
-<!--===============================================================================================-->
 <script src="../assets/js/login_v10.js"></script>
 
 </body>
