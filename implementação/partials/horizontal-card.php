@@ -48,37 +48,4 @@ error_reporting(E_ALL);
 
 <style>
 
-  .news img, .news figure{
-    max-width: 700px;
-    max-height: 300px;
-  }
-  .news img{
-    margin: auto;
-    display: block;
-  }
-  .news{
-    text-align: justify;
-  }
-  @media (max-width: 758px) {
-    .news img, .news figure{
-      max-width: 100%;
-    }
-  }
-  @media (min-width: 1200px) {
-    .news h1, .news h2, .news h3, .news h4{
-      max-width: 800px;
-    }
-    .news .modal-body >.container{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .news p, .news .modal-body .container div, .news a, .news ul, .news ol, .news li, .news span{
-      max-width: 600px;
-    }
-    .modal-dialog{
-      margin: 0 290px 0 0 !important;
-    }
-
-  }
 </style>

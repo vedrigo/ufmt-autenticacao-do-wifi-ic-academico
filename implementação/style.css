@@ -7,8 +7,16 @@
   src: url('assets/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf');
 }
 
+
+
 body{
   font-family: Ubuntu;
+}
+.truncate {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 figure, menu, p, time, h1, h2, h3, h4, h5, h6{
@@ -150,7 +158,27 @@ figure{
   margin-right: 300px;
 
 }
+
+
+.news img, .news figure{
+  max-width: 700px;
+  max-height: 300px;
+}
+.news img{
+  margin: auto;
+  display: block;
+}
+.news{
+  text-align: justify;
+}
+.news p, .news .modal-body .container div, .news a, .news ul, .news ol, .news li, .news span{
+  font-size: 18px;
+  color: black;
+}
 @media (max-width: 758px){
+  .news img, .news figure{
+    max-width: 100%;
+  }
   .card-imagem{
     width: 72px;
     height: 72px;
@@ -175,6 +203,20 @@ figure{
   }
   .container-card {
     grid-column: span 6;
+  }
+  .news h1, .news h2, .news h3, .news h4{
+    max-width: 800px;
+  }
+  .news .modal-body >.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .news p, .news .modal-body .container div, .news a, .news ul, .news ol, .news li, .news span{
+    max-width: 600px;
+  }
+  .modal-dialog{
+    margin: 0 290px 0 0 !important;
   }
 
 }

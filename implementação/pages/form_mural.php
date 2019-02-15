@@ -18,8 +18,8 @@ if (!empty($_POST)) {
       $flash['error'] = $_FILES['imagem'];
     }else{
       $dao = DaoMural::getInstance();
-      $dao->Inserir($dao->carregarNoticia($up[1]));
-      if($dao){
+      $ok = $dao->Inserir($dao->carregarNoticia($up[1]));
+      if($ok){
         $flash['sucess'] = 'ok, sua postagem logo estará no mural.';
       }else{
         $flash['error'] = 'erro ao salvar sua postagem.';
@@ -28,12 +28,12 @@ if (!empty($_POST)) {
     }
   }else{
     $dao = DaoMural::getInstance();
-    $dao->Inserir($dao->carregarNoticia(''));
+    $ok = $dao->Inserir($dao->carregarNoticia(''));
 
-    if($dao){
+    if($ok){
       $flash['sucess'] = 'ok, sua postagem logo estará no mural.';
     }else{
-      $flash['error'] = 'erro ao salvar sua postagem.';
+      $flash['error'] = 'Erro ao salvar sua postagem.';
     }
   }
 

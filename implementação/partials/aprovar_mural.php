@@ -42,7 +42,7 @@ $mural = DaoMural::getInstance()->show(10, 'Rivisão');
         </div>
         <div class="modal-body">
           <div class="container">
-            <h4 class="mb-5"><?php echo $noticia['titulo'] ?>
+              <h4 class="mb-5" style="color: black"><?php echo $noticia['titulo'] ?></h4>
                 <?php if($noticia['imagem'] != '') : ?>
             <img class="mb-5"
                  src="http://<?php echo $_SERVER['SERVER_NAME'] ?>/IC_ACADEMICO/implementação/uploads/<?php echo $noticia['imagem'] ?>">

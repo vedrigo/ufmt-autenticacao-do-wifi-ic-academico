@@ -4,6 +4,7 @@ ini_set("display_startup_erros", 1);
 error_reporting(E_ALL);
 require_once "conexao.php";
 require_once "noticia.php";
+require_once "functions.php";
 
 class DaoMural {
 
@@ -32,11 +33,11 @@ class DaoMural {
                 :texto,
                 :imagem,
                 :status)";
-
-      $p_sql = Conexao::getInstance()->prepare($sql);
-
+      $conn = Conexao::getInstance();
+      $p_sql = $conn->prepare($sql);
+      $t = remove_bs($noticia->getTexto());
       $p_sql->bindValue(":titulo", $noticia->getTitulo());
-      $p_sql->bindValue(":texto", $noticia->getTexto());
+      $p_sql->bindValue(":texto", $t);
       $p_sql->bindValue(":imagem", $noticia->getImagem());
       $p_sql->bindValue(":status", $noticia->getStatus());
 
@@ -57,7 +58,9 @@ class DaoMural {
                 status = :status,
                 id = :id WHERE id = :id";
 
-      $p_sql = Conexao::getInstance()->prepare($sql);
+      $conn = Conexao::getInstance();
+      $p_sql = $conn->prepare($sql);
+
 
       $p_sql->bindValue(":titulo", $noticia->getTitulo());
       $p_sql->bindValue(":texto", $noticia->getTexto());
@@ -75,10 +78,11 @@ class DaoMural {
   public function Deletar($id) {
     try {
       $noticia = $this->BuscarPorCOD($id);
+      $dir = '../uploads/' . $noticia->getImagem();
       $ok = 0;
-      if($noticia->getImagem() == ''){
+      if($noticia->getImagem() == '' or !file_exists ($dir)){
         $ok = 1;
-      }elseif(unlink('../uploads/' . $noticia->getImagem())){
+      }elseif(unlink($dir)){
         $ok = 1;
       }
       if($ok){
@@ -148,3 +152,4 @@ class DaoMural {
   }
 
 }
+

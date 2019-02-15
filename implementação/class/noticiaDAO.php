@@ -2,6 +2,8 @@
 
 require_once "conexao.php";
 require_once "noticia.php";
+require_once "functions.php";
+
 
 class DaoNoticia {
 
@@ -32,9 +34,9 @@ class DaoNoticia {
                 :status)";
 
       $p_sql = Conexao::getInstance()->prepare($sql);
-
+      $t = remove_bs($noticia->getTexto());
       $p_sql->bindValue(":titulo", $noticia->getTitulo());
-      $p_sql->bindValue(":texto", $noticia->getTexto());
+      $p_sql->bindValue(":texto", $t);
       $p_sql->bindValue(":imagem", $noticia->getImagem());
       $p_sql->bindValue(":status", $noticia->getStatus());
 
@@ -73,10 +75,11 @@ class DaoNoticia {
   public function Deletar($id) {
     try {
       $noticia = $this->BuscarPorCOD($id);
+      $dir = '../uploads/' . $noticia->getImagem();
       $ok = 0;
-      if($noticia->getImagem() == ''){
+      if($noticia->getImagem() == '' or !file_exists ($dir)){
         $ok = 1;
-      }elseif(unlink('../uploads/' . $noticia->getImagem())){
+      }elseif(unlink($dir)){
         $ok = 1;
       }
       if($ok){
@@ -85,7 +88,7 @@ class DaoNoticia {
         $p_sql->bindValue(":id", $id);
         return $p_sql->execute();
       }else{
-        return 'erro';
+        return false;
       }
     } catch (Exception $e) {
       print "<pre>Ocorreu um erro ao tentar executar a ação Deletar Noticia" .

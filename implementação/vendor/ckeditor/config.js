@@ -7,7 +7,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here.
 	// For complete reference see:
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
-
+	config.extraPlugins = 'wordcount,notification';
 	// The toolbar groups arrangement, optimized for a single toolbar row.
 	config.toolbarGroups = [
 		{ name: 'document',	   groups: [ 'mode', 'document', 'doctools' ] },
@@ -31,6 +31,9 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// Dialog windows are also simplified.
 	config.removeDialogTabs = 'link:advanced';
-
+	config.wordcount = {
+		showCharCount: true,
+		maxCharCount: 5000
+	}
 
 };

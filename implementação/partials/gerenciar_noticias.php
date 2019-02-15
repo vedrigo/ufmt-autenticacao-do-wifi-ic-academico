@@ -44,7 +44,11 @@
 
 <script>
   $(document).ready(function () {
-      $('#dataTable').DataTable();
+      $('#dataTable').DataTable({
+          "language": {
+              "url": "../vendor/DataTables/Portuguese.json"
+          }
+      });
   });
 
   function apagar(idx) {

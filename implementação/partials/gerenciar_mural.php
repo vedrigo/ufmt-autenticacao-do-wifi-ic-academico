@@ -1,6 +1,7 @@
 <!-- Custom styles for this page -->
 
-<link href="../assets/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+<!--<link href="../assets/css/dataTables.bootstrap4.min.css" rel="stylesheet">-->
+<link href="../vendor/DataTables/datatables.min.css" rel="stylesheet">
 <style>
   @media (max-width: 758px){
     .mg-2{
@@ -15,7 +16,7 @@
   </div>
   <div class="card-body mg-2">
     <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered compact hover" id="dataTable" width="100%" cellspacing="0">
         <thead>
         <tr>
           <th>Titulo</th>
@@ -27,7 +28,7 @@
         <?php for ($i = 0; $i < count($noticias); $i += 1) : $noticia = $noticias[$i]; ?>
           <tr>
             <td><?php echo $noticia['titulo'] ?></td>
-            <td style="white-space: nowrap"><?php echo $noticia['created_at'] ?></td>
+            <td><?php echo $noticia['created_at'] ?></td>
             <td><button class="btn btn-sm" onclick="apagar(<?php echo $noticia['id'] ?>)" id="<?php echo $noticia['id'] ?>">Apagar</button></td>
           </tr>
         <?php endfor; ?>
@@ -36,12 +37,16 @@
     </div>
   </div>
 </div>
-<script src="../assets/js/jquery.dataTables.min.js"></script>
-<script src="../assets/js/dataTables.bootstrap4.min.js"></script>
+<!--<script src="../assets/js/jquery.dataTables.min.js"></script>-->
+<script src="../vendor/DataTables/datatables.min.js"></script>
 
 <script>
   $(document).ready(function () {
-      $('#dataTable').DataTable();
+      $('#dataTable').DataTable({
+          "language": {
+              "url": "../vendor/DataTables/Portuguese.json"
+          }
+      });
   });
 
   function apagar(idx) {
