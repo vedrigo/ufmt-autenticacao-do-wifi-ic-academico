@@ -5,14 +5,14 @@ if($_POST['post_type'] == 'mural'){
   $noticias = DaoMural::getInstance()->show(2, 'Publicado', $_POST['page']) ;
   for ($i = 0; $i < count($noticias); $i += 1){
     $noticia = $noticias[$i];
-    include '../partials/horizontal-card.php';
+    include '../partials/card-mural.php';
   }
 }elseif ($_POST['post_type'] == 'noticia'){
   require_once '../class/noticiaDAO.php';
   $noticias = DaoNoticia::getInstance()->show(2, 'Publicado', $_POST['page']);
   for ($i = 0; $i < count($noticias); $i += 1){
     $noticia = $noticias[$i];
-    include '../partials/horizontal-card.php';
+    include '../partials/card-noticia.php';
   }
 }else{
   return 'erro';

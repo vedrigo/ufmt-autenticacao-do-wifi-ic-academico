@@ -1,8 +1,9 @@
 <?php
 
-require_once "conexao.php";
-require_once "noticia.php";
-require_once "functions.php";
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/IC_ACADEMICO/implementação' . "/class/conexao.php";
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/IC_ACADEMICO/implementação' ."/class/noticia.php";
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/IC_ACADEMICO/implementação' ."/class/functions.php";
+
 
 
 class DaoNoticia {
@@ -109,7 +110,7 @@ class DaoNoticia {
     }
   }
   private function populaNoticia($row) {
-    $pojo = new Noticia;
+    $pojo = new Noticia();
     $pojo->setId($row['id']);
     $pojo->setTitulo($row['titulo']);
     $pojo->setTexto($row['texto']);

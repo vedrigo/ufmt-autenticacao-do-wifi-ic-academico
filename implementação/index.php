@@ -32,7 +32,7 @@
           <?php
           for ($i = 0; $i < count($noticias); $i += 1) {
             $noticia = $noticias[$i];
-            include 'partials/horizontal-card.php';
+            include 'partials/card-noticia.php';
           }
           ?>
         </div>
@@ -59,7 +59,7 @@
           <?php
           for ($i = 0; $i < count($mural); $i += 1) {
             $noticia = $mural[$i];
-            include 'partials/horizontal-card.php';
+            include 'partials/card-mural.php';
           }
           ?>
         </div>
