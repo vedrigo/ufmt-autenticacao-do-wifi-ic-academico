@@ -18,6 +18,14 @@ body{
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.link-card{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
 
 figure, menu, p, time, h1, h2, h3, h4, h5, h6{
   margin: 0;

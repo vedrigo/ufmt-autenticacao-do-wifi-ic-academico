@@ -1,4 +1,5 @@
 <div class="container-card">
+    <a class="link-card" href="pages/noticia.php?id=<?php echo $noticia['id'] ?>"></a>
   <figure class="card-imagem">
     <?php $vish = 'style="padding-left: 16px !important"'; if($noticia['imagem'] != '') :  $vish = ''?>
       <img src="uploads/<?php echo $noticia['imagem'] ?>">
@@ -14,4 +15,5 @@
       <a class="veja-mais" href="pages/noticia.php?id=<?php echo $noticia['id'] ?>">Veja mais</a>
     </div>
   </div>
+
 </div>

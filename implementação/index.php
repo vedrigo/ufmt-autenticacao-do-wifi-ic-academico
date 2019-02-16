@@ -22,7 +22,7 @@
 <?php  $noticias = DaoNoticia::getInstance()->show(2, 'Publicado'); ?>
 <?php  $mural = DaoMural::getInstance()->show(2, 'Publicado'); ?>
 
-<div class="container-margin-login">
+<div class="container-margin-login" style="min-height:calc(100vh - 200px)">
   <div class="container mb-5 mt-5">
     <div id="noticias-ic">
       <h3 class="mb-3">Notícias do IC:</h3>
@@ -77,14 +77,14 @@
         .bg-white{background-color:#fff!important}
         .copyright{line-height:1;font-size:.8rem}
     </style>
-    <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-                <span>Desenvolvido por Rodrigo Venâncio Veríssimo @ 2019</span>
-            </div>
-        </div>
-    </footer>
 </div>
+<footer class="sticky-footer bg-white" style="margin-right: 300px;">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>Desenvolvido por Rodrigo Venâncio Veríssimo @ 2019</span>
+        </div>
+    </div>
+</footer>
 
 <script src="assets/js/jquery-3.3.1.min.js"></script>
 <script src="assets/js/popper.min.js"></script>

@@ -1,5 +1,7 @@
 <div class="container-card">
-  <figure class="card-imagem">
+    <a class="link-card" href="pages/mural.php?id=<?php echo $noticia['id'] ?>"></a>
+
+    <figure class="card-imagem">
     <?php $vish = 'style="padding-left: 16px !important"'; if($noticia['imagem'] != '') :  $vish = ''?>
       <img src="uploads/<?php echo $noticia['imagem'] ?>">
     <?php endif; ?>

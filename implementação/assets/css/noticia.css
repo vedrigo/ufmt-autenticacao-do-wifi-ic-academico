@@ -1,0 +1,40 @@
+p, ul, ol, li, span{
+    font-size: 18px;
+    color: black;
+}
+a{
+    font-size: 18px;
+}
+img, figure {
+    max-width: 100%;
+    margin: auto;
+    display: block;
+}
+@media (max-width: 758px) {
+    #row-titulo > div, h1{
+        font-size: 34px;
+        max-width: 100%;
+        margin: auto;
+    }
+}
+@media (min-width: 759px) {
+    #row-imagem img{
+        max-width: 700px;
+        max-height: 400px;
+    }
+
+    #row-titulo > div, h1{
+        font-size: 34px;
+        max-width: 800px;
+        margin: auto;
+        text-align: center;
+    }
+    #row-texto > div{
+        max-width: 600px;
+        margin: auto;
+    }
+    p, a, ul, ol, li, span{
+        max-width: 600px;
+    }
+
+}

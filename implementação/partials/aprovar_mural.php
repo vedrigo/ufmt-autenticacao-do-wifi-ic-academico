@@ -34,10 +34,11 @@ $mural = DaoMural::getInstance()->show(10, 'Rivisão');
   <!-- Modal -->
   <div class="modal news fade" id="card<?php echo $noticia['id'] ?>" tabindex="-1" role="dialog"aria-hidden="true">
     <div class="modal-dialog" style="margin: 0" role="document">
-      <div class="modal-content" style="min-height: 100vh; width: 100vw">
+      <div class="modal-content" style="    min-height: calc(100vh - 10px) !important;width: calc(100vw - 80px);
+        margin-left: 40px;margin-top: 5px;">
         <div class="modal-header">
           <button style="margin-left: 0px" type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <i class="fa fa-arrow-left" style="margin-right: 20px"></i><span> Voltar</span>
+            <i class="fa fa-times" style="margin-right: 20px"></i><span> Fechar</span>
           </button>
         </div>
         <div class="modal-body">

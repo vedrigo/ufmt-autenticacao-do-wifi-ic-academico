@@ -1,24 +1,21 @@
 <?php
-ini_set("display_errors", 1);
-ini_set("display_startup_erros", 1);
-error_reporting(E_ALL);
-require_once "conexao.php";
-require_once "noticia.php";
-require_once "functions.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . '/IC_ACADEMICO/implementação' . "/class/conexao.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . '/IC_ACADEMICO/implementação' ."/class/noticia.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . '/IC_ACADEMICO/implementação' ."/class/functions.php";
 
 class DaoMural {
 
-  public static $instance;
+  public static $instanceM;
 
   private function __construct() {
     //
   }
 
   public static function getInstance() {
-    if (!isset(self::$instance))
-      self::$instance = new DaoMural();
+    if (!isset(self::$instanceM))
+      self::$instanceM = new DaoMural();
 
-    return self::$instance;
+    return self::$instanceM;
   }
 
   public function Inserir(Noticia $noticia) {
@@ -113,7 +110,7 @@ class DaoMural {
   }
 
   private function populaNoticia($row) {
-    $pojo = new Noticia;
+    $pojo = new Noticia();
     $pojo->setId($row['id']);
     $pojo->setTitulo($row['titulo']);
     $pojo->setTexto($row['texto']);
