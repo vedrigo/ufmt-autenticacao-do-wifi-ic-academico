@@ -131,8 +131,8 @@ class DaoMural {
   }
 
   public function show($n, $status, $page = 0) {
-    $start = $n * $page;
-    $end = $start + $n;
+    $start = $n * $page + 1;
+    $end = $n;
     try {
       if($status == 'all'){
         $sql = "SELECT * FROM mural ORDER BY created_at DESC LIMIT " . $n . ';';

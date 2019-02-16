@@ -77,7 +77,7 @@ if (!empty($_POST)) {
   <?php endif; ?>
 </div>
 <div class="container" >
-  <h2>Enviar nova postagem para o mural publico:</h2>
+  <h2>Enviar nova postagem para o mural público:</h2>
   <p>Atenção, ao enviar uma postagem temos o prazo de 24 horas para publicar. </p>
   <form method="post" action="#" enctype="multipart/form-data">
     <div class="input-group mb-3 mt-3">
@@ -104,9 +104,10 @@ if (!empty($_POST)) {
       <textarea name="texto" class="form-control" style="min-height: 200px" maxlength="100"></textarea>
     </div>
     <input type="submit" class="btn btn-primary float-right mb-3" value="Enviar">
-  </form
+  </form>
 
 </div>
+
 <script src="../assets/js/jquery-3.3.1.min.js"></script>
 <script src="../assets/js/popper.min.js"></script>
 <script src="../assets/js/bootstrap.js"></script>

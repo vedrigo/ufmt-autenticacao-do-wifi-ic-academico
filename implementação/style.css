@@ -183,7 +183,13 @@ figure{
   font-size: 18px;
   color: black;
 }
+footer{
+  margin-right: 300px;
+}
 @media (max-width: 758px){
+  footer{
+    margin-right: 0px;
+  }
   .news img, .news figure{
     max-width: 100%;
   }
@@ -228,3 +234,9 @@ figure{
   }
 
 }
+@media (min-width: 1700px) {
+  #painel-login {
+    width: 368px;
+  }
+}
+

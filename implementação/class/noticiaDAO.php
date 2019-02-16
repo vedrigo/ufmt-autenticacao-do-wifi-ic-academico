@@ -130,7 +130,7 @@ class DaoNoticia {
   }
 
   public function show($n, $status, $page = 0) {
-    $start = $n * $page;
+    $start = $n * $page + 1;
     try {
       $sql = "SELECT * FROM noticias ORDER BY created_at DESC LIMIT " . $start . ',' . $n . ' ;';
       $p_sql = Conexao::getInstance()->prepare($sql);

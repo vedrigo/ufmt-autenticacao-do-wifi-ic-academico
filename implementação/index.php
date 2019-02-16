@@ -19,8 +19,8 @@
 
 <body>
 <?php include 'partials/login_wifi.php' ?>
-<?php  $noticias = DaoNoticia::getInstance()->show(2, 'Publicado'); ?>
-<?php  $mural = DaoMural::getInstance()->show(2, 'Publicado'); ?>
+<?php  $noticias = DaoNoticia::getInstance()->show(4, 'Publicado'); ?>
+<?php  $mural = DaoMural::getInstance()->show(6, 'Publicado'); ?>
 
 <div class="container-margin-login" style="min-height:calc(100vh - 200px)">
   <div class="container mb-5 mt-5">
@@ -48,7 +48,7 @@
     <div id="mural-ic">
       <div class="row mb-3">
         <div class="col-9">
-          <h3>Mural Publico:</h3>
+          <h3>Mural Público:</h3>
         </div>
         <div class="col-3">
           <a class="btn btn-light float-right" href="pages/form_mural.php">Adicionar</a>
@@ -78,7 +78,7 @@
         .copyright{line-height:1;font-size:.8rem}
     </style>
 </div>
-<footer class="sticky-footer bg-white" style="margin-right: 300px;">
+<footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
             <span>Desenvolvido por Rodrigo Venâncio Veríssimo @ 2019</span>
