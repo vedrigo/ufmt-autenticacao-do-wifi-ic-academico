@@ -84,7 +84,7 @@ if (!empty($_POST)) {
       <div class="input-group-prepend">
         <span class="input-group-text">Título:</span>
       </div>
-      <input name="titulo" type="text" class="form-control" required maxlength="255">
+      <input name="titulo" type="text" class="form-control" required maxlength="250">
     </div>
 
     <div class="input-group mb-3">
@@ -101,7 +101,7 @@ if (!empty($_POST)) {
       <div class="input-group-prepend">
         <span class="input-group-text">Texto:</span>
       </div>
-      <textarea name="texto" class="form-control" style="min-height: 200px" maxlength="100"></textarea>
+      <textarea name="texto" class="form-control" style="min-height: 200px"></textarea>
     </div>
     <input type="submit" class="btn btn-primary float-right mb-3" value="Enviar">
   </form>

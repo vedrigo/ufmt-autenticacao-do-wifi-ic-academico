@@ -1,4 +1,6 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . "/config.php";
+
 // Conexão com o banco de dados
 require_once "conexao.php";
 
@@ -42,25 +44,27 @@ if($dados)
   }
   // Senha inválida
   else{
-    header('Location: http://'. $_SERVER['HTTP_HOST'] . '/IC_ACADEMICO/implementação/pages/login_admin.php?erro=Senha Inválida');
+    header('Location: http://'. $_SERVER['HTTP_HOST'] . $dir .'/pages/login_admin.php?erro=Senha Inválida');
   }
 }
 // Login inválido
 else
 {
-  header('Location: http://'. $_SERVER['HTTP_HOST'] . '/IC_ACADEMICO/implementação/pages/login_admin.php?erro=Login Inválido');
+  header('Location: http://'. $_SERVER['HTTP_HOST'] . $dir .'/pages/login_admin.php?erro=Login Inválido');
 }
 
 function vai($file){
+  include $_SERVER['DOCUMENT_ROOT'] . "/config.php";
   if($file == 'painel.php'){
-    header_l('http://'. $_SERVER['HTTP_HOST'] .'/IC_ACADEMICO/implementação/pages/painel.php');
+    header_l('http://'. $_SERVER['HTTP_HOST'] . $dir .'/pages/painel.php');
   }elseif ($file == 'form_noticia.php'){
-    header_l('http://'. $_SERVER['HTTP_HOST'] .'/IC_ACADEMICO/implementação/pages/form_noticia.php');
+    header_l('http://'. $_SERVER['HTTP_HOST'] . $dir .'/pages/form_noticia.php');
   }else{
-    header_l('http://'. $_SERVER['HTTP_HOST'] .'/IC_ACADEMICO/implementação/pages/painel.php');
+    header_l('http://'. $_SERVER['HTTP_HOST'] . $dir .'/pages/painel.php');
   }
 
 }
+
 
 function header_l($file){
   header("Location: " . $file);

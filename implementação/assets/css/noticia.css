@@ -1,6 +1,7 @@
 p, ul, ol, li, span{
     font-size: 18px;
     color: black;
+    word-break: break-word;
 }
 a{
     font-size: 18px;
@@ -10,11 +11,17 @@ img, figure {
     margin: auto;
     display: block;
 }
+#row-titulo{
+    max-width: 100%;
+}
 @media (max-width: 758px) {
-    #row-titulo > div, h1{
-        font-size: 34px;
+    #row-titulo > div h1{
+        font-size: 28px;
         max-width: 100%;
         margin: auto;
+    }
+    p, ul, ol, li, span{
+        font-size: 16px;
     }
 }
 @media (min-width: 759px) {

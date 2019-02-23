@@ -179,9 +179,10 @@ figure{
 .news{
   text-align: justify;
 }
-.news p, .news .modal-body .container div, .news a, .news ul, .news ol, .news li, .news span{
+.news p, .news .modal-body .container div, .news ul, .news ol, .news li, .news span{
   font-size: 18px;
   color: black;
+  word-break: break-word;
 }
 footer{
   margin-right: 300px;

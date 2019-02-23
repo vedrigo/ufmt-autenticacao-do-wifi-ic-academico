@@ -34,8 +34,7 @@ $mural = DaoMural::getInstance()->show(10, 'Rivisão');
   <!-- Modal -->
   <div class="modal news fade" id="card<?php echo $noticia['id'] ?>" tabindex="-1" role="dialog"aria-hidden="true">
     <div class="modal-dialog" style="margin: 0" role="document">
-      <div class="modal-content" style="    min-height: calc(100vh - 10px) !important;width: calc(100vw - 80px);
-        margin-left: 40px;margin-top: 5px;">
+      <div class="modal-content" style="    min-height: calc(100vh - 10px) !important;margin-top: 5px;">
         <div class="modal-header">
           <button style="margin-left: 0px" type="button" class="close" data-dismiss="modal" aria-label="Close">
             <i class="fa fa-times" style="margin-right: 20px"></i><span> Fechar</span>
@@ -46,7 +45,7 @@ $mural = DaoMural::getInstance()->show(10, 'Rivisão');
               <h4 class="mb-5" style="color: black"><?php echo $noticia['titulo'] ?></h4>
                 <?php if($noticia['imagem'] != '') : ?>
             <img class="mb-5"
-                 src="http://<?php echo $_SERVER['SERVER_NAME'] ?>/IC_ACADEMICO/implementação/uploads/<?php echo $noticia['imagem'] ?>">
+                 src="http://<?php echo ($_SERVER['SERVER_NAME'] . $dir) ?>/uploads/<?php echo $noticia['imagem'] ?>">
                 <?php endif; ?>
             <div class="container-artigo">
               <?php echo $noticia['texto'] ?>
@@ -115,12 +114,21 @@ $mural = DaoMural::getInstance()->show(10, 'Rivisão');
     .news{
       text-align: justify;
     }
+    .modal-content{
+        width: calc(100vw - 30px);
+        margin-left: 10px;
+    }
     @media (max-width: 758px) {
       .news img, .news figure{
         max-width: 100%;
       }
     }
+
     @media (min-width: 1200px) {
+        .modal-content{
+            width: calc(100vw - 80px);
+            margin-left: 30px;
+        }
       .news h1, .news h2, .news h3, .news h4{
         max-width: 800px;
       }

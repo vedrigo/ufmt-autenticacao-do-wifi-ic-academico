@@ -1,7 +1,9 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/IC_ACADEMICO/implementação' . "/class/conexao.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . '/IC_ACADEMICO/implementação' ."/class/noticia.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . '/IC_ACADEMICO/implementação' ."/class/functions.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/config.php";
+
+require_once $_SERVER['DOCUMENT_ROOT'] . $dir . "/class/conexao.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . $dir ."/class/noticia.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . $dir ."/class/functions.php";
 
 class DaoMural {
 
@@ -19,6 +21,20 @@ class DaoMural {
   }
 
   public function Inserir(Noticia $noticia) {
+    $conn = Conexao::getInstance();
+    $sql = "SELECT COUNT(*) FROM mural";
+    $p_sql = $conn->prepare($sql);
+    $p_sql->execute();
+    $p_sql = $p_sql->fetch();
+    $p_sql = $p_sql[0];
+    if($p_sql >= 60){
+      $sql = 'SELECT id FROM mural ORDER BY id LIMIT 1';
+      $p_sql = $conn->prepare($sql);
+      $p_sql->execute();
+      $p_sql = $p_sql->fetch();
+      $p_sql = $p_sql[0];
+      $this->Deletar($p_sql);
+    }
     try {
       $sql = "INSERT INTO mural ( 
                 titulo,
@@ -30,7 +46,6 @@ class DaoMural {
                 :texto,
                 :imagem,
                 :status)";
-      $conn = Conexao::getInstance();
       $p_sql = $conn->prepare($sql);
       $t = remove_bs($noticia->getTexto());
       $p_sql->bindValue(":titulo", $noticia->getTitulo());
@@ -131,13 +146,12 @@ class DaoMural {
   }
 
   public function show($n, $status, $page = 0) {
-    $start = $n * $page + 1;
-    $end = $n;
+    $start = $n * $page;
     try {
       if($status == 'all'){
         $sql = "SELECT * FROM mural ORDER BY created_at DESC LIMIT " . $n . ';';
       }else{
-        $sql = "SELECT * FROM mural WHERE status = '". $status ."' ORDER BY created_at DESC LIMIT " . $start . ',' . $end . ' ;';
+        $sql = "SELECT * FROM mural WHERE status = '". $status ."' ORDER BY created_at DESC LIMIT " . $start . ',' . $n . ' ;';
       }
       $p_sql = Conexao::getInstance()->prepare($sql);
       $p_sql->execute();

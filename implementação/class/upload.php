@@ -36,8 +36,39 @@ function upload($name){
     $msg = "Seu arquivo não foi enviado.";
   // if everything is ok, try to upload file
   } else {
+
     if (move_uploaded_file($_FILES[$name]["tmp_name"], $target_file)) {
       $msg = "O arquivo ". basename( $_FILES[$name]["name"]). " foi enviado.";
+
+
+      $maxDim = 1270;
+      $file_name = $target_file;
+      list($width, $height, $type, $attr) = getimagesize( $file_name );
+      if ( $width > $maxDim || $height > $maxDim ) {
+        $target_filename = $file_name;
+        $ratio = $width/$height;
+        if( $ratio > 1) {
+          $new_width = $maxDim;
+          $new_height = $maxDim/$ratio;
+        } else {
+          $new_width = $maxDim*$ratio;
+          $new_height = $maxDim;
+        }
+        $src = imagecreatefromstring( file_get_contents( $file_name ) );
+        $dst = imagecreatetruecolor( $new_width, $new_height );
+        imagecopyresampled( $dst, $src, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
+        imagedestroy( $src );
+        if($imageFileType == 'jpg'){
+          imagejpeg( $dst, $target_filename );
+        }elseif ($imageFileType == 'jpeg'){
+          imagejpeg( $dst, $target_filename );
+        }elseif ($imageFileType == 'png'){
+          imagepng( $dst, $target_filename );
+        }
+        imagedestroy( $dst );
+      }
+
+
     } else {
       $msg = "Houve um erro ao enviar seu arquivo.";
     }

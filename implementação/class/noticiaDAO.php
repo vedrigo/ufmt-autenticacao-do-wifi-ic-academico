@@ -1,8 +1,9 @@
 <?php
+  require_once $_SERVER['DOCUMENT_ROOT'] . "/config.php";
 
-  require_once $_SERVER['DOCUMENT_ROOT'] . '/IC_ACADEMICO/implementação' . "/class/conexao.php";
-  require_once $_SERVER['DOCUMENT_ROOT'] . '/IC_ACADEMICO/implementação' ."/class/noticia.php";
-  require_once $_SERVER['DOCUMENT_ROOT'] . '/IC_ACADEMICO/implementação' ."/class/functions.php";
+  require_once $_SERVER['DOCUMENT_ROOT'] . $dir . "/class/conexao.php";
+  require_once $_SERVER['DOCUMENT_ROOT'] . $dir ."/class/noticia.php";
+  require_once $_SERVER['DOCUMENT_ROOT'] . $dir ."/class/functions.php";
 
 
 
@@ -22,6 +23,20 @@ class DaoNoticia {
   }
 
   public function Inserir(Noticia $noticia) {
+    $conn = Conexao::getInstance();
+    $sql = "SELECT COUNT(*) FROM noticias";
+    $p_sql = $conn->prepare($sql);
+    $p_sql->execute();
+    $p_sql = $p_sql->fetch();
+    $p_sql = $p_sql[0];
+    if($p_sql >= 40){
+      $sql = 'SELECT id FROM noticias ORDER BY id LIMIT 1';
+      $p_sql = $conn->prepare($sql);
+      $p_sql->execute();
+      $p_sql = $p_sql->fetch();
+      $p_sql = $p_sql[0];
+      $this->Deletar($p_sql);
+    }
     try {
       $sql = "INSERT INTO noticias ( 
                 titulo,
@@ -130,7 +145,7 @@ class DaoNoticia {
   }
 
   public function show($n, $status, $page = 0) {
-    $start = $n * $page + 1;
+    $start = $n * $page;
     try {
       $sql = "SELECT * FROM noticias ORDER BY created_at DESC LIMIT " . $start . ',' . $n . ' ;';
       $p_sql = Conexao::getInstance()->prepare($sql);

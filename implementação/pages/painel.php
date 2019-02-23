@@ -189,7 +189,7 @@
     <!-- End of Main Content -->
 
     <!-- Footer -->
-    <footer class="sticky-footer bg-white">
+    <footer class="sticky-footer bg-white" style="margin-right: 0 !important;">
       <div class="container my-auto">
         <div class="copyright text-center my-auto">
           <span>Desenvolvido por Rodrigo Venâncio Veríssimo @ 2019</span>
