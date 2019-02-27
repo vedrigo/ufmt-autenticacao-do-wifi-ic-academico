@@ -10,13 +10,28 @@ sudo apt update
 sudo apt install lamp-server^
 ```
 ### Instalação
-Copie os arquivo do projeto para pasta /var/www/html/
-
-Abra o MySQL (execute sudo mysql no terminal) e execute o comando 
+Copie os arquivo do projeto para pasta do server
+```
+cd /var/www/html/
+sudo git clone https://github.com/rodrigovenancioverissimo/IC_ACADEMICO.git
+sudo mv IC_ACADEMICO/* .
+sudo rm -R IC_ACADEMICO
+```
+Abra o MySQL
+```
+sudo mysql
+```
+Execute o comando no MySQL
 ```
 source /var/www/html/ic_academico.sql
 ```
 Isto criará o banco com as tabelas, um usuario para acessar o banco e um usuario admin para o painel da aplicação.
+
+Crie a pasta uploads e mude o proprietário para o servidor web
+```
+sudo mkdir uploads
+sudo chown www-data:www-data uploads
+```
 Feito isto o projeto já deve estar funcionando
 ## Usando
 Para acessar o painel administrador o usuario e senha padrão é admin
