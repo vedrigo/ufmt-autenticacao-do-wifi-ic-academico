@@ -1,0 +1,286 @@
+@font-face {
+    font-family: Ubuntu-Bold;
+    src: url('assets/fonts/ubuntu/Ubuntu-Bold.ttf');
+}
+
+@font-face {
+    font-family: FontAwesome;
+    src: url('assets/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf');
+}
+
+
+body {
+    font-family: Ubuntu;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    min-height: 100vh;
+}
+
+.truncate {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.link-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+
+figure, menu, p, time, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+.card-imagem {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    bottom: auto;
+    right: auto;
+    z-index: 1;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+figure {
+    display: block;
+}
+
+.card-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-corpo {
+    box-sizing: inherit;
+    padding-left: 132px !important;
+    padding: 16px 16px 16px 16px;
+    display: inline-flex;
+    position: relative;
+    width: 100%;
+    color: #202124;
+    vertical-align: top;
+    min-height: 132px;
+    flex-wrap: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-corpo p {
+    max-height: 70px;
+}
+
+.container-cards {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 16px 32px;
+    grid-column-gap: 16px;
+    box-sizing: border-box;
+}
+
+.container-card {
+    grid-column: span 12;
+
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    position: relative;
+    box-sizing: inherit;
+}
+
+.card-corpo time {
+    opacity: .7;
+}
+
+.linha-card {
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.linha-inferior {
+    align-self: flex-end;
+}
+
+.veja-mais {
+    float: right;
+    cursor: pointer;
+    opacity: 1;
+    color: #5f6368 !important;
+}
+
+.card-corpo p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#painel-login {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 268px;
+    background-color: white;
+    z-index: 3;
+    margin: 16px;
+}
+
+#logo-ic {
+    background-color: white;
+    border-radius: 50px;
+}
+
+.item-popup {
+    color: #222;
+    cursor: pointer;
+    display: block;
+    outline: none;
+    overflow: hidden;
+    padding: 0 24px;
+    position: relative;
+    line-height: 48px;
+}
+
+.item-popup:hover {
+    background-color: #eeeeee;
+    outline: 1px solid transparent;
+}
+
+.container-popup {
+    padding: 8px 0;
+}
+
+.custom-file-input {
+    cursor: pointer;
+}
+
+.modal-content {
+    min-height: 100vh !important;
+}
+
+.modal-dialog {
+    margin: 0 0 0 0 !important;
+}
+
+.hr-com-texto {
+    text-align: center;
+}
+
+.hr-com-texto hr {
+    margin-bottom: -12px;
+}
+
+.hr-com-texto span {
+    background-color: white;
+    padding: 0 10px;
+}
+
+.container-margin-login {
+    padding: 0 30px;
+    margin-right: 300px;
+
+}
+
+
+.news img, .news figure {
+    max-width: 700px;
+    max-height: 300px;
+}
+
+.news img {
+    margin: auto;
+    display: block;
+}
+
+.news {
+    text-align: justify;
+}
+
+.news p, .news .modal-body .container div, .news ul, .news ol, .news li, .news span {
+    font-size: 18px;
+    color: black;
+    word-break: break-word;
+}
+
+footer {
+    margin-right: 300px;
+}
+
+@media (max-width: 758px) {
+    footer {
+        margin-right: 0px;
+    }
+
+    .news img, .news figure {
+        max-width: 100%;
+    }
+
+    .card-imagem {
+        width: 72px;
+        height: 72px;
+    }
+
+    .card-corpo {
+        padding-left: 100px !important;
+    }
+
+    #painel-login {
+        position: relative;
+        width: calc(100vw - 32px);
+        height: auto;
+        background-color: white;
+    }
+
+    .container-margin-login {
+        padding: 0;
+        margin-right: 0
+    }
+}
+
+@media (min-width: 1200px) {
+    #painel-login > .container {
+        min-height: calc(100vh - 36px);
+    }
+
+    .container-card {
+        grid-column: span 6;
+    }
+
+    .news h1, .news h2, .news h3, .news h4 {
+        max-width: 800px;
+    }
+
+    .news .modal-body > .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .news p, .news .modal-body .container div, .news a, .news ul, .news ol, .news li, .news span {
+        max-width: 600px;
+    }
+
+    .modal-dialog {
+        margin: 0 290px 0 0 !important;
+    }
+
+}
+
+@media (min-width: 1700px) {
+    #painel-login {
+        width: 368px;
+    }
+}
+
