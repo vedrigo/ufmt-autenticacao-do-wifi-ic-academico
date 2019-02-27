@@ -21,5 +21,7 @@ Feito isto o projeto já deve estar funcionando
 ## Usando
 Para acessar o painel administrador o usuario e senha padrão é admin
 ## Mais Informações
-Acesse o arquivo em PDF disponivel neste repositório.
+Acesse o arquivo em [PDF](Relatório%20Final.pdf) disponivel neste repositório.
+## Capturas de tela
 
+<img src="prints/1.png"  width="300px"><img src="prints/2.png"  width="300px"><img src="prints/3.png" width="300px"><img src="prints/4.png" width="300px"><img src="prints/5.png" width="300px">
