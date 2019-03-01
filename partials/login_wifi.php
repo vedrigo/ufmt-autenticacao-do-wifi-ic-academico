@@ -3,7 +3,7 @@
 <div id="painel-login">
     <div class="container" style="border: 1px solid #dadce0; display: flex; flex-wrap: wrap; border-radius: 12px;">
         <div class="container-fluid">
-            <form>
+            <form action="$PORTAL_ACTION$" method="post">
                 <div class="row mb-4">
                     <div class="col col-sm-12 text-center">
                         <img id="logo-ic"
@@ -17,7 +17,7 @@
                         <div class="form-group">
 
                             <label for="login">RGA:</label>
-                            <input type="text" class="form-control" id="login">
+                            <input type="text" class="form-control" id="auth_user" name="auth_user" size="25">
                         </div>
                     </div>
                 </div>
@@ -26,7 +26,8 @@
                         <div class="form-group">
 
                             <label for="password">Senha:</label>
-                            <input type="password" class="form-control" id="password">
+                            <input type="password" class="form-control" id="auth_pass" name="auth_pass" size="25">
+                            <input name="redirurl" type="hidden" value="$PORTAL_REDIRURL$"/>
                         </div>
                     </div>
                 </div>
@@ -43,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Acessar Internet</button>
+                <button type="submit" class="btn btn-primary" name="accept">Acessar Internet</button>
             </form>
         </div>
 

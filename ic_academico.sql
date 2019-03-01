@@ -45,8 +45,8 @@ CREATE TABLE IF NOT EXISTS `usuarios`
 /*Usuario e senha admin*/
 INSERT INTO usuarios (login, nome, senha) VALUES ('admin', 'Administrador', '21232f297a57a5a743894a0e4a801fc3');
 
-CREATE USER IF NOT EXISTS 'ic_academico'@'localhost' IDENTIFIED BY 'carroscorrem';
-GRANT ALL ON * TO 'ic_academico'@'localhost' IDENTIFIED BY 'carroscorrem';
+# CREATE USER IF NOT EXISTS 'ic_academico'@'localhost' IDENTIFIED BY 'carroscorrem';
+# GRANT ALL ON * TO 'ic_academico'@'localhost' IDENTIFIED BY 'carroscorrem';
 
 
 -- 2019-02-23 15:54:09
