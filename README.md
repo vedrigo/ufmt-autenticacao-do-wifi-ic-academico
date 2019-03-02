@@ -10,7 +10,7 @@ sudo apt update
 sudo apt install lamp-server^
 ```
 ### Instalação
-Copie os arquivo do projeto para pasta do server
+Copie os arquivo do projeto para pasta do servidor
 ```
 cd /var/www/html/
 sudo git clone https://github.com/rodrigovenancioverissimo/IC_ACADEMICO.git
@@ -25,7 +25,17 @@ Execute o comando no MySQL
 ```
 source /var/www/html/ic_academico.sql
 ```
-Isto criará o banco com as tabelas, um usuario para acessar o banco e um usuario admin para o painel da aplicação.
+Isto criará o banco de dados com as tabelas e um usuario admin para o painel da aplicação.
+
+Crie um usuario do banco de dados para aplicação
+```
+CREATE USER IF NOT EXISTS 'nomedousuario'@'localhost' IDENTIFIED BY 'senhadousuario';
+GRANT ALL ON * TO 'nomedousuario'@'localhost' IDENTIFIED BY 'senhadousuario';
+```
+Abra o arquivo de conexão em class/conexão.php e altere as informações. Você pode usar o editor nano para isto. 
+```
+sudo nano /var/www/html/class/conexao.php
+```
 
 Crie a pasta uploads e mude o proprietário para o servidor web
 ```
