@@ -72,6 +72,7 @@ function upload($name)
 
     } else {
       $msg = "Houve um erro ao enviar seu arquivo.";
+        $uploadOk = 0;
     }
   }
   return [$uploadOk, $file, $msg];
