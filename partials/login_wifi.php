@@ -53,7 +53,7 @@ elseif (file_exists('./config.php' )){
                         </div>
                     </div>
                 </div>
-                <input type="submit" class="btn btn-primary" name="accept" value="Continue">Acessar Internet</input>
+                <input type="submit" class="btn btn-primary" name="accept" value="Acessar Internet">
             </form>
         </div>
 
