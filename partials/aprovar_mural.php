@@ -50,7 +50,7 @@ $mural = DaoMural::getInstance()->show(10, 'Rivisão');
                           <h4 class="mb-5" style="color: black"><?php echo $noticia['titulo'] ?></h4>
                         <?php if ($noticia['imagem'] != '') : ?>
                             <img class="mb-5"
-                                 src="http://<?php echo($_SERVER['SERVER_NAME'] . $dir) ?>/uploads/<?php echo $noticia['imagem'] ?>">
+                                 src="http://<?php echo($dir) ?>/uploads/<?php echo $noticia['imagem'] ?>">
                         <?php endif; ?>
                           <div class="container-artigo">
                             <?php echo $noticia['texto'] ?>

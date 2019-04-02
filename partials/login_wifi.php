@@ -1,4 +1,4 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/config.php"; ?>
+<?php require_once  "../config.php"; ?>
 
 <div id="painel-login">
     <div class="container" style="border: 1px solid #dadce0; display: flex; flex-wrap: wrap; border-radius: 12px;">
@@ -7,7 +7,7 @@
                 <div class="row mb-4">
                     <div class="col col-sm-12 text-center">
                         <img id="logo-ic"
-                             src="http://<?php echo($_SERVER['SERVER_NAME'] . $dir) ?>/assets/img/logo-ic.png"
+                             src="http://<?php echo($dir) ?>/assets/img/logo-ic.png"
                              max-height="80" alt="" style="max-width: 100%">
                     </div>
                 </div>
@@ -51,7 +51,7 @@
         <div class="container-fluid" style="align-self: flex-end">
             <div class="row">
                 <div class="col-12 mt-3">
-                    <a href="http://<?php echo($_SERVER['SERVER_NAME'] . $dir) ?>/pages/painel.php?vou_para=painel.php"
+                    <a href="<?php echo($dir) ?>/pages/painel.php?vou_para=painel.php"
                        class="float-right" style="margin-bottom:10px;font-size:14px;margin-right:-8px;color:gray;">Área
                         do administrador</a>
                 </div>

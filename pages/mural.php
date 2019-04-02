@@ -28,7 +28,7 @@ error_reporting(E_ALL);
 
       <div class="row">
           <div class="col-12 mt-3">
-              <a href="http://<?php echo($_SERVER['SERVER_NAME'] . $dir) ?>/">
+              <a href="<?php echo($dir) ?>/">
                   <i class="fa fa-arrow-left" style="margin-right: 20px"></i><span> Voltar</span>
               </a>
           </div>
@@ -42,7 +42,7 @@ error_reporting(E_ALL);
           <div class="col-12">
             <?php if ($mural->getImagem() != '') : ?>
                 <img class="mb-5"
-                     src="http://<?php echo($_SERVER['SERVER_NAME'] . $dir)
+                     src="http://<?php echo($dir)
                      ?>/uploads/<?php echo $mural->getImagem() ?>">
             <?php endif; ?>
           </div>

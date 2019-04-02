@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . "/config.php";
+require_once  "../config.php";
 
 // Conexão com o banco de dados
 require_once "conexao.php";
@@ -41,22 +41,22 @@ if ($dados) {
     vai($_POST['vai_para']);
   } // Senha inválida
   else {
-    header('Location: http://' . $_SERVER['HTTP_HOST'] . $dir . '/pages/login_admin.php?erro=Senha Inválida');
+    header('Location: ' . $dir . '/pages/login_admin.php?erro=Senha Inválida');
   }
 } // Login inválido
 else {
-  header('Location: http://' . $_SERVER['HTTP_HOST'] . $dir . '/pages/login_admin.php?erro=Login Inválido');
+  header('Location: ' . $dir . '/pages/login_admin.php?erro=Login Inválido');
 }
 
 function vai($file)
 {
-  include $_SERVER['DOCUMENT_ROOT'] . "/config.php";
+  include  "../config.php";
   if ($file == 'painel.php') {
-    header_l('http://' . $_SERVER['HTTP_HOST'] . $dir . '/pages/painel.php');
+    header_l( $dir . '/pages/painel.php');
   } elseif ($file == 'form_noticia.php') {
-    header_l('http://' . $_SERVER['HTTP_HOST'] . $dir . '/pages/form_noticia.php');
+    header_l( $dir . '/pages/form_noticia.php');
   } else {
-    header_l('http://' . $_SERVER['HTTP_HOST'] . $dir . '/pages/painel.php');
+    header_l( $dir . '/pages/painel.php');
   }
 
 }

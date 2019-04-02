@@ -1,4 +1,4 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/config.php"; ?>
+<?php require_once  "config.php"; ?>
 <?php require_once 'class/noticiaDAO.php'; ?>
 <?php require_once 'class/muralDAO.php'; ?>
 <?php require_once 'class/functions.php' ?>

@@ -1,4 +1,4 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/config.php"; ?>
+<?php require_once  "config.php"; ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -16,7 +16,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 mt-3">
-        <a href="http://<?php echo($_SERVER['SERVER_NAME'] . $dir) ?>/">
+        <a href="<?php echo($dir) ?>/">
           <i class="fa fa-arrow-left" style="margin-right: 20px"></i><span> Voltar</span>
         </a>
       </div>

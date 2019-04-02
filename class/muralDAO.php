@@ -1,9 +1,9 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . "/config.php";
+require_once  "../config.php";
 
-require_once $_SERVER['DOCUMENT_ROOT'] . $dir . "/class/conexao.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . $dir . "/class/noticia.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . $dir . "/class/functions.php";
+require_once  $dir . "/class/conexao.php";
+require_once  $dir . "/class/noticia.php";
+require_once  $dir . "/class/functions.php";
 
 class DaoMural
 {
