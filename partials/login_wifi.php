@@ -15,7 +15,7 @@ elseif (file_exists('./config.php' )){
                 <div class="row mb-4">
                     <div class="col col-sm-12 text-center">
                         <img id="logo-ic"
-                             src="http://<?php echo($dir) ?>/assets/img/logo-ic.png"
+                             src="<?php echo($dir) ?>/assets/img/logo-ic.png"
                              max-height="80" alt="" style="max-width: 100%">
                     </div>
                 </div>
@@ -36,6 +36,7 @@ elseif (file_exists('./config.php' )){
                             <label for="password">Senha:</label>
                             <input type="password" class="form-control" id="auth_pass" name="auth_pass" size="25">
                             <input name="redirurl" type="hidden" value="$PORTAL_REDIRURL$"/>
+                            <input name="zone" type="hidden" value="$PORTAL_ZONE$">
                         </div>
                     </div>
                 </div>
@@ -48,11 +49,11 @@ elseif (file_exists('./config.php' )){
                         <div class="form-group">
 
                             <label for="voucher">Voucher:</label>
-                            <input type="text" class="form-control" id="voucher">
+                            <input type="text" class="form-control" id="voucher" name="auth_voucher">
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary" name="accept">Acessar Internet</button>
+                <input type="submit" class="btn btn-primary" name="accept" value="Continue">Acessar Internet</input>
             </form>
         </div>
 

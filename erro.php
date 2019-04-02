@@ -26,6 +26,7 @@
         <h2><strong><span style="color: #ff0000;">Acesso negado!</span></strong></h2>
         <div>
           <p>Seu usu&aacute;rio e senha n&atilde;o est&atilde;o corretos ou n&atilde;o existem. Por favor, entre em contato com a equipe de Suporte.</p>
+        <p>$PORTAL_MESSAGE$</p>
           <div class="mt-3"><a href="mailto:suporte@ic.ufmt.br">suporte@ic.ufmt.br</a> | 3615-8794 Ramal 221 | Sala 84</div>
         </div>
       </div>
