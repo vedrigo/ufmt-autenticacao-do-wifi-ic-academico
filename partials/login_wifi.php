@@ -1,4 +1,12 @@
-<?php require_once  "../config.php"; ?>
+<?php
+if (file_exists('../config.php' ))
+    require_once  "../config.php";
+elseif (file_exists('./config.php' )){
+    require_once  "./config.php";
+}else{
+    echo('<p>Não foi possível encontrar o arquivo de configuração do sistema</p>');
+}
+?>
 
 <div id="painel-login">
     <div class="container" style="border: 1px solid #dadce0; display: flex; flex-wrap: wrap; border-radius: 12px;">

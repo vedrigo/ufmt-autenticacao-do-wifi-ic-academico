@@ -1,7 +1,15 @@
-<?php require_once  "config.php"; ?>
-<?php require_once 'class/noticiaDAO.php'; ?>
-<?php require_once 'class/muralDAO.php'; ?>
-<?php require_once 'class/functions.php' ?>
+<?php
+if (file_exists('../config.php' ))
+    require_once  "../config.php";
+elseif (file_exists('./config.php' )){
+    require_once  "./config.php";
+}else{
+    echo('<p>Não foi possível encontrar o arquivo de configuração do sistema</p>');
+}
+?>
+<?php require_once  './class/noticiaDAO.php'; ?>
+<?php require_once  './class/muralDAO.php'; ?>
+<?php require_once  './class/functions.php' ?>
 
 
 <!doctype html>

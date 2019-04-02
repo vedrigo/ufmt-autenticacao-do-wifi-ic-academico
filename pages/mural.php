@@ -42,7 +42,7 @@ error_reporting(E_ALL);
           <div class="col-12">
             <?php if ($mural->getImagem() != '') : ?>
                 <img class="mb-5"
-                     src="http://<?php echo($dir)
+                     src="<?php echo($dir)
                      ?>/uploads/<?php echo $mural->getImagem() ?>">
             <?php endif; ?>
           </div>

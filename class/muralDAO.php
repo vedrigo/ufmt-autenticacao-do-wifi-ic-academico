@@ -1,9 +1,19 @@
 <?php
-require_once  "../config.php";
+if (file_exists('../config.php' )) {
+    require_once "../config.php";
+    require_once  "../class/conexao.php";
+    require_once  "../class/noticia.php";
+    require_once  "../class/functions.php";
+}
+elseif (file_exists('./config.php' )){
+    require_once  "./config.php";
+    require_once  "./class/conexao.php";
+    require_once  "./class/noticia.php";
+    require_once  "./class/functions.php";
+}else{
+    echo('<p>Não foi possível encontrar o arquivo de configuração do sistema</p>');
+}
 
-require_once  $dir . "/class/conexao.php";
-require_once  $dir . "/class/noticia.php";
-require_once  $dir . "/class/functions.php";
 
 class DaoMural
 {
