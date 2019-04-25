@@ -42,6 +42,9 @@ Crie a pasta uploads e mude o proprietário para o servidor web
 sudo mkdir uploads
 sudo chown www-data:www-data uploads
 ```
+
+Edite o arquivo config.php com seu dominio
+
 Feito isto o projeto já deve estar funcionando
 ## Usando
 Para acessar o painel administrador o usuario e senha padrão é admin
